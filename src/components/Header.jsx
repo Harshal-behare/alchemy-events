@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import Logo from "../assets/logo.png";
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPhone, FaEnvelope } from 'react-icons/fa';
@@ -8,6 +9,22 @@ import '../styles/Header.scss';
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    setIsOpen(false);
+  };
+
+  const scrollToSection = (section) => {
+    if (location.pathname !== '/') {
+      window.location.href = `/#${section}`;
+    }
+    setIsOpen(false);
+  };
 
   return (
     <header className="header">
@@ -17,13 +34,13 @@ function Header() {
             Transforming visions into unforgettable experiences
           </p>
           <div className="top-bar__contact">
-            <a href="tel:+1971-295-3811">
+            <a href="tel:+1971-295-3">
               <FaPhone />
               <span>+1 971-295-38</span>
             </a>
-            <a href="mailto:info.alchemyevents@gmail.com">
+            <a href="mailto:info@alchemyevents.com">
               <FaEnvelope />
-              <span>info.alchemyevents@gmail.com</span>
+              <span>info@alchemyevents.com</span>
             </a>
           </div>
         </div>
@@ -31,16 +48,49 @@ function Header() {
 
       <nav className="nav">
         <div className="nav__container">
-          <Link to="/" className="nav__logo">
+          <RouterLink to="/" className="nav__logo" onClick={scrollToTop}>
             <img src={Logo} alt="Alchemy Events" />
-          </Link>
+          </RouterLink>
 
           <div className="nav__menu">
-            {['Home', 'More About Me', 'Services', 'Pricing', 'Inspiration', 'Blog', 'Lets Talk'].map((item) => (
-              <Link key={item} to={`/${item.toLowerCase().replace(' ', '-')}`}>
-                {item}
-              </Link>
-            ))}
+            <RouterLink to="/" onClick={scrollToTop} className="cursor-pointer">
+              Home
+            </RouterLink>
+            <ScrollLink
+              to="why-alchemy"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="cursor-pointer"
+              onClick={() => scrollToSection('why-alchemy')}
+            >
+              Why Alchemy
+            </ScrollLink>
+            <RouterLink to="/services">Services</RouterLink>
+            <ScrollLink
+              to="vision"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="cursor-pointer"
+              onClick={() => scrollToSection('vision')}
+            >
+              Vision
+            </ScrollLink>
+            <RouterLink to="/blog">Blog</RouterLink>
+            <ScrollLink
+              to="contact-us"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="cursor-pointer"
+              onClick={() => scrollToSection('contact-us')}
+            >
+              Contact Us
+            </ScrollLink>
           </div>
 
           <button className="nav__toggle" onClick={() => setIsOpen(!isOpen)}>
@@ -64,15 +114,42 @@ function Header() {
       </nav>
 
       <div className={`mobile-menu ${!isOpen ? 'hidden' : ''}`}>
-        {['Home', 'More About Me', 'Services', 'Pricing', 'Inspiration', 'Blog', 'Lets Talk'].map((item) => (
-          <Link 
-            key={item} 
-            to={`/${item.toLowerCase().replace(' ', '-')}`}
-            onClick={() => setIsOpen(false)}
-          >
-            {item}
-          </Link>
-        ))}
+        <RouterLink to="/" onClick={scrollToTop}>Home</RouterLink>
+        <ScrollLink
+          to="why-alchemy"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          className="cursor-pointer"
+          onClick={() => scrollToSection('why-alchemy')}
+        >
+          Why Alchemy
+        </ScrollLink>
+        <RouterLink to="/services" onClick={() => setIsOpen(false)}>Services</RouterLink>
+        <ScrollLink
+          to="vision"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          className="cursor-pointer"
+          onClick={() => scrollToSection('vision')}
+        >
+          Vision
+        </ScrollLink>
+        <RouterLink to="/blog" onClick={() => setIsOpen(false)}>Blog</RouterLink>
+        <ScrollLink
+          to="contact-us"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          className="cursor-pointer"
+          onClick={() => scrollToSection('contact-us')}
+        >
+          Contact Us
+        </ScrollLink>
         <div className="mobile-menu__contact">
           <a href="tel:+1971-295-3811">
             <FaPhone />
