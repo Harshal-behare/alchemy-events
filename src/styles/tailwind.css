@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply px-6 py-2 rounded-full font-semibold transition-all duration-300 cursor-pointer 
+    backdrop-blur-sm hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply bg-primary/80 text-white hover:bg-primary hover:-translate-y-0.5 
+    border border-primary/20;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-primary/50 text-primary 
+    hover:bg-primary/10 hover:border-primary;
+  }
+
+  .section {
+    @apply py-16;
+  }
+
+  .section-title {
+    @apply text-center mb-16 text-3xl md:text-4xl font-bold 
+    bg-gradient-to-r from-primary via-primary-light to-primary 
+    bg-clip-text text-transparent animate-gradient-x;
+  }
+
+  .card {
+    @apply bg-white/5 rounded-xl p-8 backdrop-blur-sm border border-white/10 
+    shadow-xl transition-all duration-300 hover:-translate-y-1 
+    hover:shadow-glow;
+  }
+
+  .animate-gradient-x {
+    background-size: 200% 100%;
+    animation: gradient-x 8s linear infinite;
+  }
+
+  @keyframes gradient-x {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 15px theme('colors.primary.DEFAULT/0.3'),
+                0 0 30px theme('colors.primary.DEFAULT/0.2');
+  }
+} 
+
+/* Carousel Custom Styles */
+.carousel .control-arrow {
+  @apply bg-black/20 hover:bg-primary/40 transition-colors !important;
+  @apply backdrop-blur-sm !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+  @apply border-r-[3px] border-r-white !important;
+}
+
+.carousel .control-next.control-arrow:before {
+  @apply border-l-[3px] border-l-white !important;
+}
+
+.carousel .control-dots {
+  @apply bottom-4 !important;
+}
+
+.carousel .dot {
+  @apply bg-white/50 hover:bg-white/80 !important;
+  @apply w-2 h-2 md:w-3 md:h-3 !important;
+}
+
+.carousel .dot.selected {
+  @apply bg-white !important;
+} 
