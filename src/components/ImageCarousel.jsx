@@ -1,34 +1,49 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { motion } from 'framer-motion';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 // Import images correctly
-import carousel1 from '../assets/img1.jpg';
-import carousel2 from '../assets/img2.jpg';
-import carousel3 from '../assets/img3.jpg';
+import slide1 from '../assets/images/slide1.jpg';
+import slide2 from '../assets/images/slide2.jpg';
+import slide3 from '../assets/images/slide3.jpg';
 
 const ImageCarousel = () => {
   const carouselItems = [
     {
-      image: carousel1,
+      image: slide1,
       title: "Creating Magical Moments",
-      subtitle: "Your Vision, Our Expertise"
+      subtitle: "Your Vision, Our Expertise",
+      description: "Transform your corporate events into unforgettable experiences",
+      cta: {
+        primary: "Get Started",
+        secondary: "View Portfolio"
+      }
     },
     {
-      image: carousel2,
-      title: "Unforgettable Experiences",
-      subtitle: "Every Detail Matters"
+      image: slide2,
+      title: "Exceptional Events",
+      subtitle: "Every Detail Matters",
+      description: "From intimate gatherings to grand celebrations",
+      cta: {
+        primary: "Get Started",
+        secondary: "View Portfolio"
+      }
     },
     {
-      image: carousel3,
+          image: slide3,
       title: "Professional Excellence",
-      subtitle: "Your Vision, Our Expertise"
+      subtitle: "1000+ Events Successfully Managed",
+      description: "Trusted by leading brands across industries",
+      cta: {
+        primary: "Get Started",
+        secondary: "View Portfolio"
+      }
     }
   ];
 
   return (
-    <div className="relative">
+    <div className="relative h-screen">
       <Carousel
         autoPlay
         infiniteLoop
@@ -39,46 +54,107 @@ const ImageCarousel = () => {
         transitionTime={500}
         swipeable={true}
         emulateTouch={true}
-        className="overflow-hidden carousel-container"
+        className="h-full"
+        stopOnHover={true}
+        useKeyboardArrows={true}
+        renderArrowPrev={(clickHandler) => (
+          <button
+            onClick={clickHandler}
+            className="absolute left-4 z-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 flex items-center justify-center hover:scale-110"
+          >
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
+        renderArrowNext={(clickHandler) => (
+          <button
+            onClick={clickHandler}
+            className="absolute right-4 z-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 flex items-center justify-center"
+          >
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
       >
         {carouselItems.map((item, index) => (
-          <div key={index} className="relative h-[600px] md:h-[800px]">
+          <div key={index} className="relative h-screen">
             <img 
               src={item.image} 
               alt={item.title}
-              className="object-cover w-full h-full brightness-75"
+              className="object-cover w-full h-full transition-opacity duration-300"
+              loading="eager"
+              onError={(e) => {
+                console.error(`Error loading image: ${item.image}`);
+                e.target.src = 'https://via.placeholder.com/1920x1080?text=Event+Image';
+                e.target.className = 'object-cover w-full h-full opacity-75';
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-              <motion.h2 
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
+            
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-4xl md:text-6xl font-bold mb-6 px-4 text-center leading-tight"
+                className="text-center max-w-4xl mx-auto backdrop-blur-sm bg-black/10 p-8 rounded-xl"
               >
-                {item.title}
-              </motion.h2>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xl md:text-2xl text-primary-dark font-semibold"
-              >
-                {item.subtitle}
-              </motion.p>
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="mt-8 px-8 py-3 bg-primary-dark text-white rounded-full
-                  hover:bg-primary transition-all duration-300 font-semibold"
-              >
-                Plan Your Event
-              </motion.button>
+                <motion.h2 
+                  className="text-4xl md:text-6xl font-bold text-white mb-4 font-heading"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  {item.title}
+                </motion.h2>
+                <motion.p
+                  className="text-xl md:text-2xl text-white/90 mb-4 font-body"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  {item.subtitle}
+                </motion.p>
+                <motion.p
+                  className="text-lg text-white/80 mb-8 font-body"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  {item.description}
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="space-x-4"
+                >
+                  <button className="btn btn-primary">
+                    {item.cta.primary}
+                  </button>
+                  <button className="btn btn-secondary">
+                    {item.cta.secondary}
+                  </button>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         ))}
       </Carousel>
+
+      {/* Scroll Indicator */}
+      <motion.div 
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+      >
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-1.5 bg-white rounded-full" />
+        </div>
+      </motion.div>
     </div>
   );
 };
