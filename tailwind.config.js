@@ -5,14 +5,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#7DD3FC',
-        'primary-dark': '#38BDF8',
-        'primary-light': '#BAE6FD',
-        secondary: '#F97316',
-        dark: '#0F172A',
-        'dark-light': '#1E293B',
+        primary: '#2CD3B6',
+        'primary-dark': '#1A7A6B',
+        secondary: '#FF6B6B',
+        'gray-light': '#F8F9FA',
+        'gray-medium': '#666666',
+        'gray-dark': '#333333',
         background: '#FFFFFF',
-        foreground: '#333333',
+      },
+      fontFamily: {
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Open Sans', 'sans-serif'],
+      },
+      boxShadow: {
+        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       },
     },
   },

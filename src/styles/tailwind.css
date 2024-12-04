@@ -9,13 +9,13 @@
   }
 
   .btn-primary {
-    @apply bg-primary/80 text-white hover:bg-primary hover:-translate-y-0.5 
-    border border-primary/20;
+    @apply bg-primary text-white hover:bg-primary-dark hover:-translate-y-0.5 
+    transition-all duration-300 shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-transparent border border-primary/50 text-primary 
-    hover:bg-primary/10 hover:border-primary;
+    @apply bg-secondary text-white hover:bg-secondary/90 
+    transition-all duration-300 shadow-md hover:shadow-lg;
   }
 
   .section {
@@ -23,15 +23,15 @@
   }
 
   .section-title {
-    @apply text-center mb-16 text-3xl md:text-4xl font-bold 
-    bg-gradient-to-r from-primary via-primary-light to-primary 
-    bg-clip-text text-transparent animate-gradient-x;
+    @apply text-3xl md:text-4xl font-bold mb-8 text-gray-dark 
+    font-heading relative pb-4 after:content-[''] after:absolute 
+    after:bottom-0 after:left-1/2 after:-translate-x-1/2 
+    after:w-24 after:h-1 after:bg-primary;
   }
 
   .card {
-    @apply bg-white/5 rounded-xl p-8 backdrop-blur-sm border border-white/10 
-    shadow-xl transition-all duration-300 hover:-translate-y-1 
-    hover:shadow-glow;
+    @apply bg-white p-6 rounded-lg shadow-card hover:shadow-card-hover 
+    transition-all duration-300 transform hover:-translate-y-1;
   }
 
   .animate-gradient-x {
