@@ -8,18 +8,20 @@ import ContactUs from './ContactUs';
 
 function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-x-hidden">
       {/* Hero Carousel Section */}
-      <section className="relative">
+      <section className="relative h-[100svh] md:h-screen">
         <ImageCarousel />
       </section>
 
       {/* Other Sections */}
-      <WhyAlchemy />
-      <BrandStory />
-      <Clients />
-      <Vision />
-      <ContactUs />
+      <div className="relative z-10 bg-white">
+        <WhyAlchemy />
+        <BrandStory />
+        <Clients />
+        <Vision />
+        <ContactUs />
+      </div>
     </main>
   );
 }

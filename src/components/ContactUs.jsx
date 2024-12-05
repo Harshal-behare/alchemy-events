@@ -1,8 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaCoffee } from 'react-icons/fa';
+import { db } from '../firebase/config';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 function ContactUs() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: '', message: '' });
+
+    try {
+      // Add document to 'contacts' collection
+      await addDoc(collection(db, 'contacts'), {
+        ...formData,
+        createdAt: serverTimestamp(),
+        status: 'new'
+      });
+
+      // Clear form and show success message
+      setFormData({ name: '', email: '', message: '' });
+      setStatus({
+        type: 'success',
+        message: 'Thank you for your message! We will get back to you soon.'
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus({
+        type: 'error',
+        message: 'Something went wrong. Please try again later.'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -39,36 +86,61 @@ function ContactUs() {
           {/* Contact Form */}
           <motion.div 
             className="card"
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
             <h3 className="text-2xl font-heading font-semibold mb-6 text-gray-dark">
               Write to Us
             </h3>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {status.message && (
+                <div className={`p-4 rounded-lg ${
+                  status.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
+                }`}>
+                  {status.message}
+                </div>
+              )}
               <div>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your Name"
+                  required
                   className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body"
                 />
               </div>
               <div>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Your Email"
+                  required
                   className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body"
                 />
               </div>
               <div>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows="4"
                   placeholder="Your Message"
+                  required
                   className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body"
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary w-full">
-                Send Message
+              <button 
+                type="submit" 
+                className="btn btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={loading}
+              >
+                {loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </motion.div>

@@ -43,7 +43,7 @@ const ImageCarousel = () => {
   ];
 
   return (
-    <div className="relative h-screen">
+    <div className="relative h-[100svh] md:h-screen">
       <Carousel
         autoPlay
         infiniteLoop
@@ -57,6 +57,9 @@ const ImageCarousel = () => {
         className="h-full"
         stopOnHover={true}
         useKeyboardArrows={true}
+        swipeScrollTolerance={30}
+        preventMovementUntilSwipeScrollTolerance={false}
+        axis="horizontal"
         renderArrowPrev={(clickHandler) => (
           <button
             onClick={clickHandler}
@@ -79,12 +82,17 @@ const ImageCarousel = () => {
         )}
       >
         {carouselItems.map((item, index) => (
-          <div key={index} className="relative h-screen">
+          <div 
+            key={index} 
+            className="relative h-[100svh] md:h-screen cursor-grab active:cursor-grabbing"
+          >
+            <div className="absolute inset-0 z-10 touch-pan-y" />
             <img 
               src={item.image} 
               alt={item.title}
               className="object-cover w-full h-full transition-opacity duration-300"
               loading="eager"
+              draggable={false}
               onError={(e) => {
                 console.error(`Error loading image: ${item.image}`);
                 e.target.src = 'https://via.placeholder.com/1920x1080?text=Event+Image';
@@ -92,10 +100,10 @@ const ImageCarousel = () => {
               }}
             />
             {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent pointer-events-none" />
             
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pointer-events-none">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -145,9 +153,9 @@ const ImageCarousel = () => {
         ))}
       </Carousel>
 
-      {/* Scroll Indicator */}
+      {/* Make scroll indicator pointer-events-none */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
