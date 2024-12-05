@@ -53,7 +53,7 @@ function Header() {
   };
 
   return (
-    <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isDark ? 'dark' : ''}`}>
+    <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isDark ? 'dark' : ''} ${isOpen ? 'menu-open' : ''}`}>
       <div className="top-bar backdrop-blur-sm bg-primary/5">
         <div className="top-bar__content container mx-auto px-4">
           <p className="top-bar__tagline font-heading text-gray-700">
@@ -96,10 +96,18 @@ function Header() {
         </div>
       </div>
 
-      <nav className={`nav backdrop-blur-md ${isScrolled ? 'bg-white/90 shadow-lg' : 'bg-transparent'}`}>
-        <div className="nav__container container mx-auto px-4">
-          <RouterLink to="/" className="nav__logo transition-transform hover:scale-105" onClick={scrollToTop}>
-            <img src={Logo} alt="Alchemy Events" className="h-12" />
+      <nav className={`nav backdrop-blur-md ${isScrolled ? 'bg-white/90 dark:bg-gray-900/90 shadow-lg' : 'bg-transparent'}`}>
+        <div className="nav__container">
+          <RouterLink 
+            to="/" 
+            className="nav__logo" 
+            onClick={scrollToTop}
+          >
+            <img 
+              src={Logo} 
+              alt="Alchemy Events" 
+              className="h-8 md:h-12 transition-all duration-300" 
+            />
           </RouterLink>
 
           <div className="nav__menu">
@@ -167,52 +175,60 @@ function Header() {
         </div>
       </nav>
 
-      <div className={`mobile-menu backdrop-blur-md bg-white/95 transform transition-transform duration-300 ${!isOpen ? 'translate-x-full' : 'translate-x-0'}`}>
-        <RouterLink to="/" onClick={scrollToTop} className="mobile-menu__link">Home</RouterLink>
-        <ScrollLink
-          to="why-alchemy"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-          className="mobile-menu__link"
-          onClick={() => scrollToSection('why-alchemy')}
-        >
-          Why Alchemy
-        </ScrollLink>
-        <RouterLink to="/services" onClick={() => setIsOpen(false)} className="mobile-menu__link">Services</RouterLink>
-        <ScrollLink
-          to="vision"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-          className="mobile-menu__link"
-          onClick={() => scrollToSection('vision')}
-        >
-          Vision
-        </ScrollLink>
-        <RouterLink to="/blog" onClick={() => setIsOpen(false)} className="mobile-menu__link">Blog</RouterLink>
-        <ScrollLink
-          to="contact-us"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-          className="mobile-menu__link"
-          onClick={() => scrollToSection('contact-us')}
-        >
-          Contact Us
-        </ScrollLink>
-        <div className="mobile-menu__contact">
-          <a href="tel:+1971-295-3811" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
-            <FaPhone className="text-lg" />
-            <span className="font-medium">+1 971-295-3811</span>
-          </a>
-          <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
-            <FaEnvelope className="text-lg" />
-            <span className="font-medium">info.alchemyevents@gmail.com</span>
-          </a>
+      <div 
+        className={`mobile-menu fixed inset-0 z-50 pt-[3.5rem] ${
+          !isOpen ? 'translate-x-full' : 'translate-x-0'
+        } backdrop-blur-md bg-white/95 dark:bg-gray-900/95`}
+      >
+        <div className="h-full overflow-y-auto">
+          <div className="flex flex-col space-y-1">
+            <RouterLink to="/" onClick={scrollToTop} className="mobile-menu__link">Home</RouterLink>
+            <ScrollLink
+              to="why-alchemy"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="mobile-menu__link"
+              onClick={() => scrollToSection('why-alchemy')}
+            >
+              Why Alchemy
+            </ScrollLink>
+            <RouterLink to="/services" onClick={() => setIsOpen(false)} className="mobile-menu__link">Services</RouterLink>
+            <ScrollLink
+              to="vision"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="mobile-menu__link"
+              onClick={() => scrollToSection('vision')}
+            >
+              Vision
+            </ScrollLink>
+            <RouterLink to="/blog" onClick={() => setIsOpen(false)} className="mobile-menu__link">Blog</RouterLink>
+            <ScrollLink
+              to="contact-us"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="mobile-menu__link"
+              onClick={() => scrollToSection('contact-us')}
+            >
+              Contact Us
+            </ScrollLink>
+            <div className="mobile-menu__contact">
+              <a href="tel:+1971-295-3811" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
+                <FaPhone className="text-lg" />
+                <span className="font-medium">+1 971-295-3811</span>
+              </a>
+              <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
+                <FaEnvelope className="text-lg" />
+                <span className="font-medium">info.alchemyevents@gmail.com</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </header>

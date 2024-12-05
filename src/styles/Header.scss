@@ -243,11 +243,17 @@
 // Media queries
 @media (max-width: 768px) {
   .header {
-    .top-bar {
-      display: none;
-    }
-
     .nav {
+      padding: 0.5rem 0;
+      
+      &__container {
+        padding: 0 0.75rem;
+      }
+
+      &__logo img {
+        height: 2.25rem;
+      }
+
       &__menu {
         display: none;
       }
@@ -257,10 +263,28 @@
       }
     }
 
+    // Optimize mobile menu positioning
     .mobile-menu {
+      position: fixed;
+      top: 3.5rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: calc(100vh - 3.5rem);
+      overflow-y: auto;
       display: block;
-      &.hidden {
-        display: none;
+      padding-top: 0.5rem;
+      
+      &.translate-x-full {
+        transform: translateX(100%);
+      }
+
+      &.translate-x-0 {
+        transform: translateX(0);
+      }
+
+      a {
+        padding: 0.5rem 1rem;
       }
     }
   }
