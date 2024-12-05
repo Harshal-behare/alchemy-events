@@ -27,9 +27,9 @@ function Clients() {
   ];
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden">
+    <section className="py-16 bg-[#FAF9F6] relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-gray-50/50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-[#FAF9F6] to-gray-50/50" />
       <motion.div 
         className="absolute -top-32 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
         animate={{ 
@@ -72,8 +72,7 @@ function Clients() {
               <img 
                 src={client.logo} 
                 alt={client.name}
-                className={`w-auto filter grayscale group-hover:grayscale-0 
-                  transition-all duration-500 object-contain transform group-hover:scale-110
+                className={`w-auto transition-all duration-500 object-contain transform group-hover:scale-110
                   ${client.name === 'Godrej Properties' ? 'h-24 md:h-32' : 'h-16 md:h-20'}`}
               />
             </motion.div>

@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-[#FAF9F6];
+  }
+}
+
+
 @layer components {
   .btn {
     @apply px-6 py-2 rounded-full font-semibold transition-all duration-300 cursor-pointer 
@@ -152,4 +159,35 @@
 .carousel .slide.selected {
   opacity: 1;
   pointer-events: auto;
+}
+
+/* Add these to your carousel styles */
+.carousel .slide {
+  opacity: 1 !important; /* Force opacity */
+  visibility: visible !important; /* Ensure visibility */
+}
+
+.carousel .slide img {
+  pointer-events: auto !important;
+}
+
+/* Optimize image loading */
+.carousel .slide img {
+  opacity: 1 !important;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Prevent FOUC (Flash of Unstyled Content) */
+.carousel-root {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure proper stacking context */
+.carousel .slider-wrapper {
+  z-index: 1;
+}
+
+.carousel .slide.selected {
+  z-index: 2;
 } 
