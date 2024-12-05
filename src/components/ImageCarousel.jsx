@@ -43,7 +43,7 @@ const ImageCarousel = () => {
   ];
 
   return (
-    <div className="relative h-[100svh] md:h-screen">
+    <div className="relative h-[60vh] md:h-screen overflow-hidden">
       <Carousel
         autoPlay
         infiniteLoop
@@ -54,7 +54,7 @@ const ImageCarousel = () => {
         transitionTime={500}
         swipeable={true}
         emulateTouch={true}
-        className="h-full"
+        className="h-full touch-pan-y"
         stopOnHover={true}
         useKeyboardArrows={true}
         swipeScrollTolerance={30}
@@ -84,13 +84,13 @@ const ImageCarousel = () => {
         {carouselItems.map((item, index) => (
           <div 
             key={index} 
-            className="relative h-[100svh] md:h-screen cursor-grab active:cursor-grabbing"
+            className="relative h-full cursor-grab active:cursor-grabbing touch-pan-y"
           >
-            <div className="absolute inset-0 z-10 touch-pan-y" />
+            <div className="absolute inset-0 touch-pan-y" />
             <img 
               src={item.image} 
               alt={item.title}
-              className="object-cover w-full h-full transition-opacity duration-300"
+              className="object-cover w-full h-full transition-opacity duration-300 touch-pan-y"
               loading="eager"
               draggable={false}
               onError={(e) => {
@@ -153,7 +153,7 @@ const ImageCarousel = () => {
         ))}
       </Carousel>
 
-      {/* Make scroll indicator pointer-events-none */}
+      {/* Scroll indicator */}
       <motion.div 
         className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none"
         animate={{ y: [0, 10, 0] }}

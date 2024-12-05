@@ -10,7 +10,7 @@ function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden">
       {/* Hero Carousel Section */}
-      <section className="relative h-[100svh] md:h-screen">
+      <section className="relative h-[60vh] md:h-screen overflow-hidden">
         <ImageCarousel />
       </section>
 

@@ -75,4 +75,24 @@
 
 .carousel .dot.selected {
   @apply bg-white !important;
+}
+
+@layer utilities {
+  .touch-pan-y {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+} 
+
+/* Additional carousel fixes */
+.carousel-root, 
+.carousel.carousel-slider,
+.carousel .slider-wrapper,
+.carousel .slider {
+  height: 100% !important;
+}
+
+.carousel .slider-wrapper.axis-horizontal .slider {
+  display: flex;
+  height: 100%;
 } 
