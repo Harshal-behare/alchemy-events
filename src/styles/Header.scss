@@ -243,6 +243,11 @@
 // Media queries
 @media (max-width: 768px) {
   .header {
+    // Hide the top bar on mobile
+    .top-bar {
+      display: none;
+    }
+
     .nav {
       padding: 0.5rem 0;
       
@@ -266,11 +271,11 @@
     // Optimize mobile menu positioning
     .mobile-menu {
       position: fixed;
-      top: 3.5rem;
+      top: 3.5rem;  // Reduced from previous value since top-bar is now hidden
       left: 0;
       right: 0;
       bottom: 0;
-      height: calc(100vh - 3.5rem);
+      height: calc(100vh - 3.5rem);  // Adjusted height calculation
       overflow-y: auto;
       display: block;
       padding-top: 0.5rem;

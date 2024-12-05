@@ -54,7 +54,7 @@ function Header() {
 
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isDark ? 'dark' : ''} ${isOpen ? 'menu-open' : ''}`}>
-      <div className="top-bar backdrop-blur-sm bg-primary/5">
+      <div className="top-bar backdrop-blur-sm bg-primary/5 hidden md:block">
         <div className="top-bar__content container mx-auto px-4">
           <p className="top-bar__tagline font-heading text-gray-700">
             Transforming visions into unforgettable experiences
