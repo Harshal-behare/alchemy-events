@@ -96,3 +96,60 @@
   display: flex;
   height: 100%;
 } 
+
+/* Add these to your existing carousel styles */
+.carousel .slide {
+  transition: opacity 1000ms ease-in-out !important;
+  opacity: 0;
+}
+
+.carousel .slide.selected {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Ensure smooth infinite loop */
+.carousel .slider-wrapper {
+  transition: transform 1000ms ease-in-out !important;
+}
+
+.carousel .slider {
+  display: flex;
+  height: 100%;
+  touch-action: pan-y pinch-zoom;
+}
+
+/* Prevent flickering during transitions */
+.carousel .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.carousel .slide.selected {
+  position: relative;
+}
+
+/* Optimize for performance */
+.carousel .slide {
+  will-change: opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Ensure smooth fade transitions */
+.carousel .slide {
+  transition: opacity 1000ms ease-in-out !important;
+}
+
+.carousel .slide:not(.selected) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel .slide.selected {
+  opacity: 1;
+  pointer-events: auto;
+} 

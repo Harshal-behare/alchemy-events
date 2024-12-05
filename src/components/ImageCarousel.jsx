@@ -43,45 +43,32 @@ const ImageCarousel = () => {
   ];
 
   return (
-    <div className="relative h-[60vh] md:h-screen overflow-hidden">
+    <div className="relative h-[45vh] sm:h-[50vh] md:h-[70vh] lg:h-screen overflow-hidden">
       <Carousel
         autoPlay
-        infiniteLoop
+        infiniteLoop={true}
+        interval={3000}
+        transitionTime={1000}
         showThumbs={false}
         showStatus={false}
-        showArrows={true}
-        interval={5000}
-        transitionTime={500}
+        showArrows={false}
         swipeable={true}
         emulateTouch={true}
         className="h-full touch-pan-y"
-        stopOnHover={true}
+        stopOnHover={false}
         useKeyboardArrows={true}
         swipeScrollTolerance={30}
         preventMovementUntilSwipeScrollTolerance={false}
         axis="horizontal"
-        renderArrowPrev={(clickHandler) => (
-          <button
-            onClick={clickHandler}
-            className="absolute left-4 z-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 flex items-center justify-center hover:scale-110"
-          >
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-        )}
-        renderArrowNext={(clickHandler) => (
-          <button
-            onClick={clickHandler}
-            className="absolute right-4 z-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 flex items-center justify-center"
-          >
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        )}
+        animationHandler="fade"
+        swipeAnimationHandler="fade"
+        selectedItem={0}
+        centerMode={false}
+        dynamicHeight={false}
+        centerSlidePercentage={100}
+        continuous={true}
       >
-        {carouselItems.map((item, index) => (
+        {[...carouselItems, carouselItems[0]].map((item, index) => (
           <div 
             key={index} 
             className="relative h-full cursor-grab active:cursor-grabbing touch-pan-y"
@@ -90,8 +77,8 @@ const ImageCarousel = () => {
             <img 
               src={item.image} 
               alt={item.title}
-              className="object-cover w-full h-full transition-opacity duration-300 touch-pan-y"
-              loading="eager"
+              className="object-cover w-full h-full transition-all duration-1000 ease-in-out touch-pan-y"
+              loading={index === 0 ? "eager" : "lazy"}
               draggable={false}
               onError={(e) => {
                 console.error(`Error loading image: ${item.image}`);
@@ -108,10 +95,10 @@ const ImageCarousel = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-center max-w-4xl mx-auto backdrop-blur-sm bg-black/10 p-8 rounded-xl"
+                className="text-center max-w-4xl mx-auto backdrop-blur-sm bg-black/10 p-4 sm:p-6 md:p-8 rounded-xl"
               >
                 <motion.h2 
-                  className="text-4xl md:text-6xl font-bold text-white mb-4 font-heading"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-2 sm:mb-4 font-heading"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -119,7 +106,7 @@ const ImageCarousel = () => {
                   {item.title}
                 </motion.h2>
                 <motion.p
-                  className="text-xl md:text-2xl text-white/90 mb-4 font-body"
+                  className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-2 sm:mb-4 font-body"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -127,7 +114,7 @@ const ImageCarousel = () => {
                   {item.subtitle}
                 </motion.p>
                 <motion.p
-                  className="text-lg text-white/80 mb-8 font-body"
+                  className="text-sm sm:text-base md:text-lg text-white/80 mb-4 sm:mb-6 md:mb-8 font-body hidden sm:block"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
@@ -138,12 +125,12 @@ const ImageCarousel = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="space-x-4"
+                  className="space-x-2 sm:space-x-4"
                 >
-                  <button className="btn btn-primary">
+                  <button className="btn btn-primary text-sm sm:text-base py-1.5 sm:py-2 px-4 sm:px-6">
                     {item.cta.primary}
                   </button>
-                  <button className="btn btn-secondary">
+                  <button className="btn btn-secondary text-sm sm:text-base py-1.5 sm:py-2 px-4 sm:px-6">
                     {item.cta.secondary}
                   </button>
                 </motion.div>
@@ -153,14 +140,14 @@ const ImageCarousel = () => {
         ))}
       </Carousel>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - Hide on smallest screens */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 pointer-events-none hidden sm:block"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-white rounded-full" />
+        <div className="w-4 sm:w-6 h-8 sm:h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+          <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-white rounded-full" />
         </div>
       </motion.div>
     </div>
