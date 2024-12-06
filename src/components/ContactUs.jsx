@@ -76,16 +76,16 @@ function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Hello!</h2>
-          <p className="text-gray-medium font-body max-w-2xl mx-auto">
-            If you can think it, we will build it. Let's create something amazing together!
+          <h2 className="section-title">Let's Connect</h2>
+          <p className="text-gray-medium font-body max-w-2xl mx-auto text-sm sm:text-base">
+            Ready to create something amazing together? We're here to turn your vision into reality.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div 
-            className="card space-y-3 sm:space-y-6"
+            className="card space-y-4 sm:space-y-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -94,7 +94,7 @@ function ContactUs() {
             <h3 className="text-xl sm:text-2xl font-heading font-semibold text-gray-dark">
               Send us a Message
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {status.message && (
                 <div className={`p-4 rounded-lg ${
                   status.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
@@ -102,7 +102,7 @@ function ContactUs() {
                   {status.message}
                 </div>
               )}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <input
                     type="text"
@@ -111,7 +111,7 @@ function ContactUs() {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
-                    className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body"
+                    className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body text-sm sm:text-base"
                   />
                 </div>
                 <div>
@@ -122,23 +122,25 @@ function ContactUs() {
                     onChange={handleChange}
                     placeholder="Your Email"
                     required
-                    className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body"
+                    className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body text-sm sm:text-base"
                   />
                 </div>
-                <div>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows="4"
-                    placeholder="Your Message"
-                    required
-                    className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body"
-                  ></textarea>
-                </div>
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="4"
+                  placeholder="Your Message"
+                  required
+                  className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body text-sm sm:text-base"
+                ></textarea>
+              </div>
+              <div className="flex justify-end">
                 <button 
                   type="submit" 
-                  className="btn btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn btn-primary w-full sm:w-auto min-w-[160px] disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3"
                   disabled={loading}
                 >
                   {loading ? 'Sending...' : 'Send Message'}
@@ -149,30 +151,30 @@ function ContactUs() {
 
           {/* Contact Info Cards */}
           <motion.div 
-            className="space-y-3 sm:space-y-6"
+            className="space-y-4 sm:space-y-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
             {/* Schedule Appointment Card */}
-            <div className="card group cursor-pointer">
-              <div className="flex items-start space-x-3 sm:space-x-4">
-                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 group-hover:scale-110 transition-transform">
-                  <FaCalendar className="text-primary text-lg sm:text-xl" />
+            <div className="card group hover:shadow-lg transition-all duration-300">
+              <div className="flex items-start space-x-4 sm:space-x-6">
+                <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 group-hover:scale-110 transition-transform">
+                  <FaCalendar className="text-primary text-xl sm:text-2xl" />
                 </div>
-                <div>
-                  <h4 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark mb-1 sm:mb-2">
+                <div className="flex-1">
+                  <h4 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark mb-2">
                     Schedule an Appointment
                   </h4>
-                  <p className="text-gray-medium font-body text-sm sm:text-base">
+                  <p className="text-gray-medium font-body text-sm sm:text-base mb-3">
                     Let's discuss your event in detail
                   </p>
                   <a 
                     href="https://calendly.com/your-calendar-link" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary mt-2 sm:mt-4 inline-block text-sm sm:text-base"
+                    className="btn btn-primary inline-block text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3"
                   >
                     Book a Meeting
                   </a>
@@ -181,21 +183,21 @@ function ContactUs() {
             </div>
 
             {/* Call Us Card */}
-            <div className="card group cursor-pointer">
-              <div className="flex items-start space-x-3 sm:space-x-4">
-                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 group-hover:scale-110 transition-transform">
-                  <FaPhone className="text-primary text-lg sm:text-xl" />
+            <div className="card group hover:shadow-lg transition-all duration-300">
+              <div className="flex items-start space-x-4 sm:space-x-6">
+                <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 group-hover:scale-110 transition-transform">
+                  <FaPhone className="text-primary text-xl sm:text-2xl" />
                 </div>
-                <div>
-                  <h4 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark mb-1 sm:mb-2">
+                <div className="flex-1">
+                  <h4 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark mb-2">
                     Call Us
                   </h4>
-                  <p className="text-gray-medium font-body text-sm sm:text-base">
+                  <p className="text-gray-medium font-body text-sm sm:text-base mb-3">
                     Ready to discuss your event?
                   </p>
                   <a 
                     href="tel:+1971-295-3811" 
-                    className="btn btn-primary mt-2 sm:mt-4 inline-block text-sm sm:text-base"
+                    className="btn btn-primary inline-block text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3"
                   >
                     +1 971-295-3811
                   </a>

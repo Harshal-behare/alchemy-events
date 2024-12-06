@@ -7,7 +7,7 @@ function ImageCarousel() {
   const carouselItems = [
     {
       id: 1,
-      image: '/src/assets/images/slide1.jpg',
+      image: '../assets/images/slide1.jpg',
       title: "Corporate Excellence",
       subtitle: "Where Business Meets Brilliance",
       description: "Creating memorable corporate events that inspire and connect.",
@@ -18,7 +18,7 @@ function ImageCarousel() {
     },
     {
       id: 2,
-        image: '/src/assets/images/slide2.jpg',
+        image: '../assets/images/slide2.jpg',
       title: "Milestone Celebrations",
       subtitle: "Making Moments Matter",
       description: "Turning special occasions into unforgettable experiences.",
