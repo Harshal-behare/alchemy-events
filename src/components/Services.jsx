@@ -47,7 +47,7 @@ function Services() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -57,13 +57,13 @@ function Services() {
                 transition={{ delay: index * 0.1 }}
                 className="card group"
               >
-                <div className="text-primary text-3xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-heading font-semibold mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-2">
+                <div className="text-2xl sm:text-3xl mb-3 sm:mb-4 text-primary">{service.icon}</div>
+                <h3 className="text-lg sm:text-xl font-heading font-semibold mb-3 sm:mb-4">{service.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{service.description}</p>
+                <ul className="space-y-1.5 sm:space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-500">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
+                    <li key={idx} className="flex items-center text-gray-500 text-sm sm:text-base">
+                      <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary rounded-full mr-1.5 sm:mr-2"></span>
                       {feature}
                     </li>
                   ))}

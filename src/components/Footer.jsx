@@ -36,19 +36,20 @@ function Footer() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5" />
       
       <div className="container mx-auto px-4 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
+        {/* Adjust grid gap and padding for mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 py-8 sm:py-16">
           {/* Brand Section */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.1 }}>
-            <img src={Logo} alt="Alchemy Events" className="h-12 mb-6" />
-            <p className="text-gray-medium font-body mb-6">
+          <motion.div {...fadeInUp} transition={{ delay: 0.1 }} className="col-span-1 md:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
+            <img src={Logo} alt="Alchemy Events" className="h-10 sm:h-12" />
+            <p className="text-sm sm:text-base text-gray-medium font-body">
               Transforming visions into unforgettable experiences
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 sm:space-x-4">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300"
                 >
                   {social.icon}
                 </a>
@@ -56,65 +57,60 @@ function Footer() {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
-            <h3 className="text-lg font-heading font-semibold mb-6 text-gray-dark">
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-medium hover:text-primary transition-colors duration-300 flex items-center space-x-2"
-                  >
-                    <span className="w-1.5 h-1.5 bg-primary/50 rounded-full" />
-                    <span>{link.name}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          {/* Quick Links and Locations in a nested grid for mobile */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-2 grid grid-cols-2 gap-6 md:gap-12">
+            {/* Quick Links */}
+            <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="space-y-4 sm:space-y-6">
+              <h3 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark">
+                Quick Links
+              </h3>
+              <ul className="space-y-2 sm:space-y-3">
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
+                    <a href={link.href} className="text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
 
-          {/* Locations */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.3 }}>
-            <h3 className="text-lg font-heading font-semibold mb-6 text-gray-dark">
-              Our Locations
-            </h3>
-            <ul className="space-y-3">
-              {locations.map((location) => (
-                <li key={location} className="flex items-start space-x-2 text-gray-medium">
-                  <div className="location">
-                    <span>{location}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            {/* Locations */}
+            <motion.div {...fadeInUp} transition={{ delay: 0.3 }} className="space-y-4 sm:space-y-6">
+              <h3 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark">
+                Locations
+              </h3>
+              <ul className="space-y-2 sm:space-y-3">
+                {locations.map((location) => (
+                  <li key={location} className="text-sm sm:text-base text-gray-medium">
+                    {location}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
 
           {/* Contact Info */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.4 }}>
-            <h3 className="text-lg font-heading font-semibold mb-6 text-gray-dark">
-              Get In Touch
+          <motion.div {...fadeInUp} transition={{ delay: 0.4 }} className="col-span-1 md:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
+            <h3 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark">
+              Contact Us
             </h3>
-            <div className="space-y-4">
-              <a href="tel:+1971-295-3811" className="flex items-center space-x-3 text-gray-medium hover:text-primary transition-colors duration-300">
-                <FaPhone />
-                <span>+91 98200 00000</span>
+            <div className="space-y-2 sm:space-y-3">
+              <a href="tel:+1971-295-3811" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
+                <FaPhone className="text-primary" />
+                +1 971-295-3811
               </a>
-              <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center space-x-3 text-gray-medium hover:text-primary transition-colors duration-300">
-                <FaEnvelope />
-                <span>info.alchemyevents@gmail.com</span>
+              <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
+                <FaEnvelope className="text-primary" />
+                info.alchemyevents@gmail.com
               </a>
             </div>
           </motion.div>
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-100 py-6">
-          <p className="text-center text-gray-medium text-sm">
-            © {new Date().getFullYear()} Alchemy Events. All rights reserved.
-          </p>
+        <div className="border-t border-gray-100 py-4 sm:py-6 text-center text-sm sm:text-base text-gray-medium">
+          <p>&copy; {new Date().getFullYear()} Alchemy Events. All rights reserved.</p>
         </div>
       </div>
     </footer>

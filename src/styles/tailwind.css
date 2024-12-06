@@ -6,13 +6,19 @@
   body {
     @apply bg-[#FAF9F6];
   }
+  
+  /* Mobile text adjustments */
+  @screen sm {
+    html {
+      font-size: 14px; /* Base font size reduction for mobile */
+    }
+  }
 }
-
 
 @layer components {
   .btn {
-    @apply px-6 py-2 rounded-full font-semibold transition-all duration-300 cursor-pointer 
-    backdrop-blur-sm hover:shadow-glow;
+    @apply px-4 py-1.5 sm:px-6 sm:py-2 rounded-full font-semibold transition-all duration-300 cursor-pointer 
+    backdrop-blur-sm hover:shadow-glow text-sm sm:text-base;
   }
 
   .btn-primary {
@@ -26,19 +32,19 @@
   }
 
   .section {
-    @apply py-16;
+    @apply py-12 sm:py-16;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-8 text-gray-dark 
-    font-heading relative pb-4 after:content-[''] after:absolute 
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-gray-dark 
+    font-heading relative pb-3 sm:pb-4 after:content-[''] after:absolute 
     after:bottom-0 after:left-1/2 after:-translate-x-1/2 
-    after:w-24 after:h-1 after:bg-primary;
+    after:w-16 sm:after:w-24 after:h-0.5 sm:after:h-1 after:bg-primary;
   }
 
   .card {
-    @apply bg-white p-6 rounded-lg shadow-card hover:shadow-card-hover 
-    transition-all duration-300 transform hover:-translate-y-1;
+    @apply bg-white p-4 sm:p-6 rounded-lg shadow-card hover:shadow-card-hover 
+    transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base;
   }
 
   .animate-gradient-x {
@@ -55,12 +61,18 @@
     box-shadow: 0 0 15px theme('colors.primary.DEFAULT/0.3'),
                 0 0 30px theme('colors.primary.DEFAULT/0.2');
   }
+
+  /* Mobile-first icon sizes */
+  .icon-base {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
 } 
 
 /* Carousel Custom Styles */
 .carousel .control-arrow {
   @apply bg-black/20 hover:bg-primary/40 transition-colors !important;
   @apply backdrop-blur-sm !important;
+  @apply h-8 w-8 sm:h-10 sm:w-10 !important;
 }
 
 .carousel .control-prev.control-arrow:before {
@@ -77,7 +89,7 @@
 
 .carousel .dot {
   @apply bg-white/50 hover:bg-white/80 !important;
-  @apply w-2 h-2 md:w-3 md:h-3 !important;
+  @apply w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 !important;
 }
 
 .carousel .dot.selected {
@@ -88,6 +100,27 @@
   .touch-pan-y {
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .text-2xs {
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+  }
+
+  .carousel .slide img {
+    @apply w-full h-full object-cover;
+  }
+  
+  .carousel .control-dots {
+    @apply bottom-4;
+  }
+  
+  .carousel .control-dots .dot {
+    @apply w-2 h-2 sm:w-3 sm:h-3 bg-white/70 hover:bg-white transition-all duration-300;
+  }
+  
+  .carousel .control-dots .dot.selected {
+    @apply bg-white;
   }
 } 
 
@@ -190,4 +223,31 @@
 
 .carousel .slide.selected {
   z-index: 2;
+}
+
+/* Mobile-specific content adjustments */
+@media (max-width: 640px) {
+  .carousel .slide img {
+    height: 100% !important;
+    object-fit: cover;
+  }
+
+  .carousel-content {
+    @apply px-2 py-3;
+  }
+} 
+
+/* Enhance mobile grid pattern */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, #e5e7eb 0.5px, transparent 0.5px),
+    linear-gradient(to bottom, #e5e7eb 0.5px, transparent 0.5px);
+  background-size: 16px 16px;
+}
+
+@media (min-width: 640px) {
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+      linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
 } 
