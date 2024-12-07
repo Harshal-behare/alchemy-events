@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { motion } from 'framer-motion';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import slide1 from '../assets/images/slide1.jpg';
+import slide2 from '../assets/images/slide2.jpg';
 
 function ImageCarousel() {
   const carouselItems = [
     {
       id: 1,
-      image: '../assets/images/slide1.jpg',
+      image: {slide1},
       title: "Corporate Excellence",
       subtitle: "Where Business Meets Brilliance",
       description: "Creating memorable corporate events that inspire and connect.",
@@ -18,7 +20,7 @@ function ImageCarousel() {
     },
     {
       id: 2,
-        image: '../assets/images/slide2.jpg',
+      image: {slide2},
       title: "Milestone Celebrations",
       subtitle: "Making Moments Matter",
       description: "Turning special occasions into unforgettable experiences.",
