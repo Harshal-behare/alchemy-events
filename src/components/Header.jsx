@@ -64,7 +64,7 @@ function Header() {
 
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isDark ? 'dark' : ''} ${isOpen ? 'menu-open' : ''}`}>
-      <div className="top-bar backdrop-blur-sm bg-primary/5 hidden md:block">
+      {/* <div className="top-bar backdrop-blur-sm bg-primary/5 hidden md:block">
         <div className="top-bar__content container mx-auto px-4">
           <p className="top-bar__tagline font-heading text-gray-700">
             Transforming visions into unforgettable experiences
@@ -104,7 +104,7 @@ function Header() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <nav className={`nav backdrop-blur-md ${isScrolled ? 'bg-white/90 dark:bg-gray-900/90 shadow-lg' : 'bg-transparent'}`}>
         <div className="nav__container">

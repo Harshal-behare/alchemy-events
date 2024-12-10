@@ -4,12 +4,13 @@ import { motion } from 'framer-motion';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import slide1 from '../assets/images/slide1.jpg';
 import slide2 from '../assets/images/slide2.jpg';
+import slide3 from '../assets/images/slide3.jpg';
 
 function ImageCarousel() {
   const carouselItems = [
     {
       id: 1,
-      image: {slide1},
+      image: slide1,
       title: "Corporate Excellence",
       subtitle: "Where Business Meets Brilliance",
       description: "Creating memorable corporate events that inspire and connect.",
@@ -20,10 +21,21 @@ function ImageCarousel() {
     },
     {
       id: 2,
-      image: {slide2},
+      image: slide2,
       title: "Milestone Celebrations",
       subtitle: "Making Moments Matter",
       description: "Turning special occasions into unforgettable experiences.",
+      cta: {
+        primary: "Start Planning",
+        secondary: "View Gallery"
+      }
+    },
+    {
+      id: 3,
+      image: slide3,
+      title: "Corporate Excellence",
+      subtitle: "Where Business Meets Brilliance",
+      description: "Creating memorable corporate events that inspire and connect.",
       cta: {
         primary: "Start Planning",
         secondary: "View Gallery"
@@ -33,43 +45,38 @@ function ImageCarousel() {
   ];
 
   return (
-    <div className="relative">
+    <div className="carousel-container relative w-[calc(100%-40px)] h-[calc(100vh-100px)] mt-[85px] mx-[20px] rounded-lg overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 z-[1]" />
+      
       <Carousel
         showThumbs={false}
         showStatus={false}
-        infiniteLoop={true}
-        autoPlay={true}
+        infiniteLoop
+        autoPlay
         interval={5000}
         transitionTime={500}
-        stopOnHover={true}
         swipeable={true}
         emulateTouch={true}
-        dynamicHeight={false}
-        className="relative"
+        className="h-full"
       >
-        {carouselItems.map((item) => (
-          <div key={item.id} className="relative h-[50vh] sm:h-[70vh] lg:h-[85vh]">
-            {/* Image with proper loading and error handling */}
-            <div className="absolute inset-0 bg-black/30"> {/* Overlay */}
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = '/src/assets/images/fallback.jpg'; // Fallback image
-                }}
-                loading="lazy"
-              />
-            </div>
-
-            {/* Content */}
+        {carouselItems.map((item, index) => (
+          <div key={index} className="relative h-full">
+            <div 
+              className="absolute inset-0 bg-cover bg-center rounded-lg"
+              style={{ 
+                backgroundImage: `url(${item.image})`,
+                height: 'calc(100vh - 100px)',
+                filter: 'brightness(0.85)'
+              }}
+            />
+            
+            {/* Content overlay */}
             <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-center max-w-4xl mx-auto backdrop-blur-sm bg-black/30 p-4 sm:p-6 md:p-8 rounded-xl"
+                className="text-center max-w-4xl mx-auto backdrop-blur-[2px] bg-black/20 p-4 sm:p-6 md:p-8 rounded-xl"
               >
                 <motion.h2 
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-2 sm:mb-4 font-heading"

@@ -1,25 +1,37 @@
 /* Custom carousel styles */
-.carousel-container .control-arrow {
-  background: rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(4px);
-  width: 50px;
-  height: 50px;
-  border-radius: 50% !important;
-  top: 50% !important;
-  transform: translateY(-50%);
-  opacity: 0.8 !important;
+.carousel-container {
+  .control-arrow {
+    top: 50% !important;
+    transform: translateY(-50%);
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(4px);
+    opacity: 0.8 !important;
+    margin: 0 20px !important;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.25) !important;
+    }
+  }
+
+  .carousel {
+    height: 100%;
+    
+    .slider-wrapper {
+      height: 100%;
+      
+      .slider {
+        height: 100%;
+      }
+    }
+  }
 }
 
-.carousel-container .control-prev.control-arrow {
-  left: 20px;
-}
-
-.carousel-container .control-next.control-arrow {
-  right: 20px;
-}
-
-.carousel-container .control-arrow:hover {
-  background: rgba(255, 255, 255, 0.3) !important;
+/* Ensure main content starts below fixed header */
+main {
+  padding-top: 73px;
 }
 
 /* Custom animations */
@@ -31,3 +43,14 @@
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-out forwards;
 } 
+
+/* Update dots style */
+.carousel .dot {
+  @apply bg-white/40 hover:bg-white/60 !important;
+  @apply w-2 h-2 !important;
+  margin: 0 4px !important;
+}
+
+.carousel .dot.selected {
+  @apply bg-white/80 !important;
+}

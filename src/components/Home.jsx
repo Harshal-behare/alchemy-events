@@ -8,14 +8,14 @@ import ContactUs from './ContactUs';
 
 function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#FAF9F6]">
+    <main className="min-h-screen overflow-x-hidden bg-[#FAF9F6] p-0">
       {/* Hero Carousel Section */}
-      <section className="relative h-[45vh] sm:h-[50vh] md:h-[70vh] lg:h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         <ImageCarousel />
       </section>
 
       {/* Other Sections */}
-      <div className="relative z-10 bg-[#FAF9F6]">
+      <div className="relative z-10 bg-[#FAF9F6] space-y-0">
         <WhyAlchemy />
         <BrandStory />
         <Clients />

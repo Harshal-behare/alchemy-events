@@ -44,4 +44,53 @@
       @apply text-gray-400;
     }
   }
+}
+
+.wedding-container {
+  padding-top: 73px; // Account for header height
+}
+
+.wedding-grid-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.wedding-card {
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    .wedding-card-overlay {
+      opacity: 1;
+    }
+    
+    img {
+      transform: scale(1.1);
+    }
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .wedding-grid-container {
+    padding: 1rem;
+  }
+  
+  .wedding-card {
+    margin-bottom: 1rem;
+  }
+}
+
+// Dark mode support
+.dark {
+  .wedding-card-overlay {
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+  }
 } 
