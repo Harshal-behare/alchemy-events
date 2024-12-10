@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 import WhyAlchemy from './components/WhyAlchemy';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
+import Wedding from './components/Wedding';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/services" element={<Services />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/wedding" element={<Wedding />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           <Footer />

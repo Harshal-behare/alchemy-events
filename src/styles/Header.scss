@@ -1,5 +1,5 @@
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -94,17 +94,71 @@
         &::after {
           content: '';
           position: absolute;
-          bottom: -1px;
+          bottom: -2px;
           left: 0;
           width: 0;
           height: 2px;
-          background-color: #2CD3B6;
-          transition: width 0.3s;
+          background-color: var(--primary);
+          transition: width 0.3s ease;
+          opacity: 0;
+          transform: none;
+        }
+
+        &.active,
+        &.can-active.active,
+        &.active.no-glow {
+          color: var(--primary);
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            opacity: 1;
+            transition: all 0.3s ease;
+          }
+        }
+
+        // Special handling for route changes
+        &.active:not(.route-active):not(.can-active) {
+          &::after {
+            width: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+          }
+          color: inherit;
         }
 
         &:hover {
-          color: #1A7A6B;
+          color: var(--primary);
+          
           &::after {
+            width: 100%;
+            opacity: 1;
+          }
+        }
+
+        // Glow effect only for route-active links
+        &.active.glow {
+          color: var(--primary);
+          text-shadow: 0 0 10px var(--primary);
+          
+          &::after {
+            box-shadow: 0 0 10px var(--primary);
+          }
+        }
+
+        // No glow effect for scroll links but keep the line
+        &.active.no-glow {
+          color: inherit;
+          text-shadow: none;
+          
+          &::after {
+            box-shadow: none;
+            opacity: 1;
             width: 100%;
           }
         }
@@ -164,6 +218,10 @@
         }
       }
     }
+
+    a[href="/wedding"] {
+      // Add any special styling for the wedding tab in mobile menu here
+    }
   }
 
   &.dark {
@@ -208,6 +266,34 @@
         &::after {
           background-color: var(--primary);
           box-shadow: 0 0 10px var(--primary);
+        }
+
+        &.active {
+          color: var(--primary);
+          text-shadow: 0 0 10px var(--primary);
+          
+          &::after {
+            background-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+          }
+        }
+
+        &.active.glow {
+          color: var(--primary);
+          text-shadow: 0 0 10px var(--primary);
+          
+          &::after {
+            box-shadow: 0 0 10px var(--primary);
+          }
+        }
+
+        &.active.no-glow {
+          color: var(--dark-text-secondary);
+          text-shadow: none;
+          
+          &::after {
+            box-shadow: none;
+          }
         }
       }
     }
@@ -291,6 +377,17 @@
       a {
         padding: 0.5rem 1rem;
       }
+    }
+  }
+} 
+
+// Add transition for active state removal
+.nav__link {
+  &.active {
+    transition: color 0.3s ease;
+    
+    &::after {
+      transition: all 0.3s ease;
     }
   }
 } 

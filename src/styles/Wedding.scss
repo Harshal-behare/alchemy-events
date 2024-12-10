@@ -1,0 +1,47 @@
+.wedding-hero {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  @media (max-width: 768px) {
+    background-attachment: scroll; // Better mobile performance
+  }
+}
+
+.service-card {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Add these styles to your existing global styles or create new ones
+.btn-primary {
+  @apply bg-primary text-white px-6 py-3 rounded-lg font-medium
+         hover:bg-primary-dark transition-colors duration-300
+         transform hover:scale-105 active:scale-95;
+}
+
+// Dark mode support
+.dark {
+  .wedding-hero {
+    &::before {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .service-card {
+    @apply bg-gray-800 text-white;
+    
+    p {
+      @apply text-gray-300;
+    }
+    
+    li {
+      @apply text-gray-400;
+    }
+  }
+} 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, NavLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import Logo from "../assets/logos/logo.png";
 import { FaPhone, FaEnvelope, FaSun, FaMoon } from 'react-icons/fa';
@@ -11,6 +11,7 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -51,6 +52,15 @@ function Header() {
     }
     setIsOpen(false);
   };
+
+  React.useEffect(() => {
+    if (!isHomePage) {
+      const activeScrollLinks = document.querySelectorAll('.nav__link.active:not(.route-active)');
+      activeScrollLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+    }
+  }, [location.pathname, isHomePage]);
 
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isDark ? 'dark' : ''} ${isOpen ? 'menu-open' : ''}`}>
@@ -111,44 +121,79 @@ function Header() {
           </RouterLink>
 
           <div className="nav__menu">
-            <RouterLink to="/" onClick={scrollToTop} className="nav__link hover:text-primary transition-colors">
+            <NavLink 
+              to="/" 
+              onClick={scrollToTop}
+              className={({ isActive }) => 
+                `nav__link hover:text-primary transition-colors ${isActive ? 'active route-active ' : ''}`
+              }
+            >
               Home
-            </RouterLink>
+            </NavLink>
             <ScrollLink
               to="why-alchemy"
-              spy={true}
               smooth={true}
               offset={-100}
               duration={500}
-              className="nav__link hover:text-primary transition-colors cursor-pointer"
+              spy={true}
+              activeClass="active"
+              className={`nav__link hover:text-primary transition-colors cursor-pointer ${
+                isHomePage ? 'can-active no-glow' : ''
+              }`}
               onClick={() => scrollToSection('why-alchemy')}
             >
               Why Alchemy
             </ScrollLink>
-            <RouterLink to="/services" className="nav__link hover:text-primary transition-colors">Services</RouterLink>
             <ScrollLink
               to="vision"
-              spy={true}
               smooth={true}
               offset={-100}
               duration={500}
-              className="nav__link hover:text-primary transition-colors cursor-pointer"
+              spy={isHomePage}
+              className={`nav__link hover:text-primary transition-colors cursor-pointer ${
+                isHomePage ? 'can-active no-glow' : ''
+              }`}
               onClick={() => scrollToSection('vision')}
             >
               Vision
             </ScrollLink>
-            <RouterLink to="/blog" className="nav__link hover:text-primary transition-colors">Blog</RouterLink>
             <ScrollLink
               to="contact-us"
-              spy={true}
               smooth={true}
               offset={-100}
               duration={500}
-              className="nav__link hover:text-primary transition-colors cursor-pointer"
+              spy={isHomePage}
+              className={`nav__link hover:text-primary transition-colors cursor-pointer ${
+                isHomePage ? 'can-active no-glow' : ''
+              }`}
               onClick={() => scrollToSection('contact-us')}
             >
               Contact Us
             </ScrollLink>
+            <NavLink 
+              to="/services"
+              className={({ isActive }) => 
+                `nav__link hover:text-primary transition-colors ${isActive ? 'active route-active' : ''}`
+              }
+            >
+              Services
+            </NavLink>
+            <NavLink 
+              to="/wedding"
+              className={({ isActive }) => 
+                `nav__link hover:text-primary transition-colors ${isActive ? 'active route-active' : ''}`
+              }
+            >
+              Wedding
+            </NavLink>
+            <NavLink 
+              to="/blog"
+              className={({ isActive }) => 
+                `nav__link hover:text-primary transition-colors ${isActive ? 'active route-active' : ''}`
+              }
+            >
+              Blog
+            </NavLink>
           </div>
 
           <button 
@@ -182,25 +227,49 @@ function Header() {
       >
         <div className="h-full overflow-y-auto">
           <div className="flex flex-col space-y-1">
-            <RouterLink to="/" onClick={scrollToTop} className="mobile-menu__link">Home</RouterLink>
+            <RouterLink to="/" onClick={scrollToTop} className="mobile-menu__link">
+              Home
+            </RouterLink>
+            {isHomePage ? (
             <ScrollLink
               to="why-alchemy"
-              spy={true}
               smooth={true}
               offset={-100}
               duration={500}
+              spy={true}
+              activeClass="active"
               className="mobile-menu__link"
               onClick={() => scrollToSection('why-alchemy')}
             >
               Why Alchemy
             </ScrollLink>
-            <RouterLink to="/services" onClick={() => setIsOpen(false)} className="mobile-menu__link">Services</RouterLink>
+            ) : (
+              <NavLink 
+                to="/why-alchemy"
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) => 
+                  `mobile-menu__link ${isActive ? 'active route-active' : ''}`
+                }
+              >
+                Why Alchemy
+              </NavLink>
+            )}
+            <NavLink 
+              to="/services"
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) => 
+                `mobile-menu__link ${isActive ? 'active route-active' : ''}`
+              }
+            >
+              Services
+            </NavLink>
+            <RouterLink to="/wedding" onClick={() => setIsOpen(false)} className="mobile-menu__link">Wedding</RouterLink>
             <ScrollLink
               to="vision"
-              spy={true}
               smooth={true}
               offset={-100}
               duration={500}
+              spy={isHomePage}
               className="mobile-menu__link"
               onClick={() => scrollToSection('vision')}
             >
@@ -209,10 +278,10 @@ function Header() {
             <RouterLink to="/blog" onClick={() => setIsOpen(false)} className="mobile-menu__link">Blog</RouterLink>
             <ScrollLink
               to="contact-us"
-              spy={true}
               smooth={true}
               offset={-100}
               duration={500}
+              spy={isHomePage}
               className="mobile-menu__link"
               onClick={() => scrollToSection('contact-us')}
             >

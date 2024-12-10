@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Blog from './components/Blog';
 import Services from './components/Services';
 import Footer from './components/Footer';
+import Wedding from './components/Wedding';
 import './index.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/wedding" element={<Wedding />} />
           </Routes>
         </main>
         <Footer />
