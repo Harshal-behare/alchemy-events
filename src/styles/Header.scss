@@ -71,8 +71,12 @@
 
     &__logo {
       img {
-        height: 3rem;
+        height: 2.5rem;
         transition: height 0.3s;
+
+        @media (max-width: 768px) {
+          height: 2rem;
+        }
       }
     }
 
@@ -80,6 +84,7 @@
       display: flex;
       gap: 1.5rem;
       align-items: center;
+      padding-top: 0.8rem;
 
       a {
         color: #333333;
@@ -357,6 +362,7 @@
 
       &__menu {
         display: none;
+        padding-top: 0;
       }
 
       &__toggle {

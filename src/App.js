@@ -7,7 +7,7 @@ import Services from './components/Services';
 import Footer from './components/Footer';
 import Wedding from './components/Wedding';
 import './index.css';
-
+import WhatsappButton from './components/WhatsAppButton.jsx';
 function App() {
   return (
     <Router>
@@ -20,6 +20,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/wedding" element={<Wedding />} />
           </Routes>
+          <section><WhatsappButton /></section>
         </main>
         <Footer />
       </div>

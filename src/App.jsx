@@ -10,6 +10,7 @@ import WhyAlchemy from './components/WhyAlchemy';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Wedding from './components/Wedding';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           <Footer />
+          <WhatsAppButton />
         </div>
       </Router>
     </FirebaseProvider>

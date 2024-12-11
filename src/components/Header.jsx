@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link as RouterLink, NavLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
-import Logo from "../assets/logos/logo.png";
+import Logo from "../assets/logos/logo1.JPG";
 import { FaPhone, FaEnvelope, FaSun, FaMoon } from 'react-icons/fa';
 import '../styles/Header.scss';
 import { motion } from 'framer-motion';
@@ -116,7 +116,7 @@ function Header() {
             <img 
               src={Logo} 
               alt="Alchemy Events" 
-              className="h-8 md:h-12 transition-all duration-300" 
+              className="h-8 md:h-10 transition-all duration-300" 
             />
           </RouterLink>
 

@@ -22,6 +22,7 @@ function Home() {
         <Vision />
         <ContactUs />
       </div>
+      
     </main>
   );
 }

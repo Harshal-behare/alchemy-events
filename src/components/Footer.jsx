@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
-import Logo from '../assets/logos/logo.png';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaPhone, FaEnvelope } from 'react-icons/fa';
+import Logo from '../assets/logos/logo.JPG';
 
 function Footer() {
   const fadeInUp = {
@@ -29,10 +29,6 @@ function Footer() {
     'Mumbai',
     'Delhi'
   ];
-
-  const whatsappNumber = '+19712953811';
-  const whatsappMessage = 'Hello, I would like to know more about your services.';
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <footer className="bg-white relative overflow-hidden">
@@ -107,19 +103,6 @@ function Footer() {
               <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
                 <FaEnvelope className="text-primary" />
                 info.alchemyevents@gmail.com
-              </a>
-              <a 
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors group"
-              >
-                <FaWhatsapp className="text-primary text-lg group-hover:scale-110 transition-transform" />
-                Chat on WhatsApp
-                <span className="inline-flex items-center justify-center ml-2 w-2 h-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
               </a>
             </div>
           </motion.div>
