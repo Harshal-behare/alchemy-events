@@ -1,4 +1,3 @@
-import { FirebaseProvider } from './contexts/FirebaseContext';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import Blog from './components/Blog';
@@ -14,24 +13,24 @@ import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
-    <FirebaseProvider>
-      <Router>
-        <div className="flex flex-col min-h-screen bg-[#FAF9F6]">
-          <Navigation />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/why-alchemy" element={<WhyAlchemy />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/wedding" element={<Wedding />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-          <Footer />
-          <WhatsAppButton />
-        </div>
-      </Router>
-    </FirebaseProvider>
+    <Router>
+      <div className="flex flex-col min-h-screen bg-[#FAF9F6]">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/why-alchemy" element={<WhyAlchemy />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/wedding" element={<Wedding />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    </Router>
   );
-} 
+}
+
+export default App; 

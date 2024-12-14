@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { db } from '../firebase/config';
-import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
 import { format } from 'date-fns';
 
 function Blog() {
@@ -11,42 +9,9 @@ function Blog() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch recent events
-        const eventsQuery = query(
-          collection(db, 'events'),
-          orderBy('date', 'desc'),
-          limit(6)
-        );
-        const eventsSnapshot = await getDocs(eventsQuery);
-        const eventsData = eventsSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setEvents(eventsData);
-
-        // Fetch recent contacts
-        const contactsQuery = query(
-          collection(db, 'contacts'),
-          orderBy('createdAt', 'desc'),
-          limit(10)
-        );
-        const contactsSnapshot = await getDocs(contactsQuery);
-        const contactsData = contactsSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setContacts(contactsData);
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError('Failed to load data. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    setEvents([]);
+    setContacts([]);
+    setLoading(false);
   }, []);
 
   if (loading) {

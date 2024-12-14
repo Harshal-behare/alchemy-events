@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaCalendar, FaEnvelope } from 'react-icons/fa';
-import { db } from '../firebase/config';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 function ContactUs() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    Name: '',
+    Email: '',
+    Message: ''
   });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: '', message: '' });
@@ -26,19 +24,26 @@ function ContactUs() {
     setStatus({ type: '', message: '' });
 
     try {
-      // Add document to 'contacts' collection
-      await addDoc(collection(db, 'contacts'), {
-        ...formData,
-        createdAt: serverTimestamp(),
-        status: 'new'
-      });
+      const formEle = e.target;
+      const formDatab = new FormData(formEle);
+      
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbw3bat5fB_kwxqZV-hwbrLjb4kPheARBjItMSwcRl744GNtusG4bRDaL9hvOCHvtt_H-g/exec",
+        {
+          method: "POST",
+          body: formDatab
+        }
+      );
 
-      // Clear form and show success message
-      setFormData({ name: '', email: '', message: '' });
-      setStatus({
-        type: 'success',
-        message: 'Thank you for your message! We will get back to you soon.'
-      });
+      if (response.ok || response.status === 200 || response.status === 201 || response.status === 302) {
+        setFormData({ Name: '', Email: '', Message: '' });
+        setStatus({
+          type: 'success',
+          message: 'Thank you for your message! We will get back to you soon.'
+        });
+      } else {
+        throw new Error('Failed to submit form');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setStatus({
@@ -106,8 +111,8 @@ function ContactUs() {
                 <div>
                   <input
                     type="text"
-                    name="name"
-                    value={formData.name}
+                    name="Name"
+                    value={formData.Name}
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
@@ -117,8 +122,8 @@ function ContactUs() {
                 <div>
                   <input
                     type="email"
-                    name="email"
-                    value={formData.email}
+                    name="Email"
+                    value={formData.Email}
                     onChange={handleChange}
                     placeholder="Your Email"
                     required
@@ -128,8 +133,8 @@ function ContactUs() {
               </div>
               <div>
                 <textarea
-                  name="message"
-                  value={formData.message}
+                  name="Message"
+                  value={formData.Message}
                   onChange={handleChange}
                   rows="4"
                   placeholder="Your Message"

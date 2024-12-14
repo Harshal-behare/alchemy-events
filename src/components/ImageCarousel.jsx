@@ -45,7 +45,7 @@ function ImageCarousel() {
   ];
 
   return (
-    <div className="carousel-container relative w-[calc(100%-40px)] h-[calc(100vh-100px)] mt-[85px] mx-[20px] rounded-lg overflow-hidden">
+    <div className="carousel-container relative w-[80%] h-[70%] mt-[85px] mx-auto rounded-lg overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 z-[1]" />
       
       <Carousel
@@ -65,7 +65,7 @@ function ImageCarousel() {
               className="absolute inset-0 bg-cover bg-center rounded-lg"
               style={{ 
                 backgroundImage: `url(${item.image})`,
-                height: 'calc(100vh - 100px)',
+                height: '600px',
                 filter: 'brightness(0.85)'
               }}
             />
