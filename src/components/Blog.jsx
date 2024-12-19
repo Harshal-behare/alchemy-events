@@ -1,18 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 
 function Blog() {
-  const [events, setEvents] = useState([]);
-  const [contacts, setContacts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // Demo blog data
+  const demoEvents = [
+    {
+      id: 1,
+      title: "Tech Summit 2024",
+      date: new Date("2024-03-15"),
+      description: "A groundbreaking tech conference bringing together industry leaders and innovators.",
+      imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format",
+      tags: ["Technology", "Conference", "Innovation"],
+      location: "Portland Convention Center"
+    },
+    {
+      id: 2,
+      title: "Corporate Leadership Retreat",
+      date: new Date("2024-02-20"),
+      description: "An exclusive leadership development program focused on team building and strategy.",
+      imageUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format",
+      tags: ["Leadership", "Corporate", "Team Building"],
+      location: "Mountain Resort, Aspen"
+    },
+    {
+      id: 3,
+      title: "Annual Marketing Symposium",
+      date: new Date("2024-04-10"),
+      description: "Exploring the latest trends in digital marketing and brand strategy.",
+      imageUrl: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&auto=format",
+      tags: ["Marketing", "Digital", "Branding"],
+      location: "Downtown Conference Hall"
+    }
+  ];
 
-  useEffect(() => {
-    setEvents([]);
-    setContacts([]);
-    setLoading(false);
-  }, []);
+  const [events] = useState(demoEvents);
+  const [loading] = useState(false);
+  const [error] = useState(null);
 
   if (loading) {
     return (
@@ -33,123 +57,93 @@ function Blog() {
   return (
     <div className="min-h-screen bg-gray-50 py-24">
       <div className="container mx-auto px-4">
-        {/* Recent Events Section */}
-        <motion.section
+        {/* Hero Section */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8">
-            Recent Events
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event) => (
-              <motion.div
-                key={event.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                {event.imageUrl && (
-                  <img
-                    src={event.imageUrl}
-                    alt={event.title}
-                    className="w-full h-48 object-cover"
-                  />
-                )}
-                <div className="p-6">
-                  <h3 className="text-xl font-heading font-semibold mb-2">
-                    {event.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {format(event.date.toDate(), 'MMMM dd, yyyy')}
-                  </p>
-                  <p className="text-gray-700 mb-4">{event.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {event.tags?.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
+            Our Latest Events
+          </h1>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Discover the magic behind our most recent events and get inspired for your next celebration.
+          </p>
+        </motion.div>
 
-        {/* Recent Contacts Section */}
-        <motion.section
+        {/* Events Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {events.map((event) => (
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={event.imageUrl}
+                  alt={event.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="text-sm font-medium">
+                    {format(event.date, 'MMMM dd, yyyy')}
+                  </p>
+                  <p className="text-xs opacity-75">{event.location}</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-heading font-semibold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                  {event.title}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                  {event.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {event.tags?.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="px-6 pb-6">
+                <button className="w-full py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 rounded-lg text-sm font-medium">
+                  Read More
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Newsletter Section */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          className="bg-primary/5 rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8">
-            Recent Inquiries
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4">
+            Stay Updated
           </h2>
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Name
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Email
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Message
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Date
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Status
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {contacts.map((contact) => (
-                    <tr key={contact.id}>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">
-                          {contact.name}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-500">
-                          {contact.email}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-500 truncate max-w-xs">
-                          {contact.message}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-500">
-                          {format(contact.createdAt.toDate(), 'MMM dd, yyyy')}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                          contact.status === 'new' 
-                            ? 'bg-green-100 text-green-800' 
-                            : 'bg-gray-100 text-gray-800'
-                        }`}>
-                          {contact.status}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <p className="text-gray-600 mb-6">
+            Subscribe to our newsletter for the latest event updates and exclusive offers.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+            />
+            <button className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors duration-300">
+              Subscribe
+            </button>
           </div>
-        </motion.section>
+        </motion.div>
       </div>
     </div>
   );

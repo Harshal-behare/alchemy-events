@@ -98,7 +98,7 @@ function Footer() {
             <div className="space-y-2 sm:space-y-3">
               <a href="tel:+1971-295-3811" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
                 <FaPhone className="text-primary" />
-                +1 971-295-3811
+                +91 899-998-7331
               </a>
               <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
                 <FaEnvelope className="text-primary" />

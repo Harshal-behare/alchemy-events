@@ -71,7 +71,7 @@
 
     &__logo {
       img {
-        height: 2.5rem;
+        height: 3rem;
         transition: height 0.3s;
 
         @media (max-width: 768px) {
@@ -223,10 +223,6 @@
           color: #2CD3B6;
         }
       }
-    }
-
-    a[href="/wedding"] {
-      // Add any special styling for the wedding tab in mobile menu here
     }
   }
 
