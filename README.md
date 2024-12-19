@@ -60,7 +60,7 @@ Alchemy Events is a modern, responsive web application designed for corporate ev
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/alchemy-events.git
+git clone https://github.com/Harshal-behare/alchemy_events.git
 cd alchemy-events
 ```
 
