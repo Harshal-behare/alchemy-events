@@ -290,7 +290,7 @@ function Header() {
             <div className="mobile-menu__contact">
               <a href="tel:+1971-295-3811" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
                 <FaPhone className="text-lg" />
-                <span className="font-medium">+1 971-295-3811</span>
+                <span className="font-medium">+91 899-998-7331</span>
               </a>
               <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
                 <FaEnvelope className="text-lg" />
