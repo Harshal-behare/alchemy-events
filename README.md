@@ -1,6 +1,6 @@
 # Alchemy Events - Corporate Event Management Platform
 
-![Alchemy Events Logo](src/assets/logos/logo.png)
+![Alchemy Events Logo](src/assets/logo.JPG)
 
 ## Overview
 
