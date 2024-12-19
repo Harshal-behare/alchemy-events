@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { motion } from 'framer-motion';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -45,7 +45,7 @@ function ImageCarousel() {
   ];
 
   return (
-    <div className="carousel-container relative w-[80%] h-[70%] mt-[85px] mx-auto rounded-lg overflow-hidden">
+    <div className="carousel-container relative w-full h-[60vh] md:h-[80vh] mt-[85px] mx-auto rounded-lg overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 z-[1]" />
       
       <Carousel
@@ -65,7 +65,7 @@ function ImageCarousel() {
               className="absolute inset-0 bg-cover bg-center rounded-lg"
               style={{ 
                 backgroundImage: `url(${item.image})`,
-                height: '600px',
+                height: '100%',
                 filter: 'brightness(0.85)'
               }}
             />
