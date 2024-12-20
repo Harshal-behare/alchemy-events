@@ -65,5 +65,7 @@ cd alchemy_events
 ```
 
 2. Install dependencies
+```bash
 npm install
+```
 
