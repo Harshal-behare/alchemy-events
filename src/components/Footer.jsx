@@ -122,14 +122,14 @@ function Footer() {
             </h3>
             <div className="space-y-2 sm:space-y-3">
               <a
-                href="tel:+1971-295-3811"
+                href="tel:8999987331"
                 className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors"
               >
                 <FaPhone className="text-primary" />
                 +91 89999-87331
               </a>
               <a
-                href="mailto:info.alchemyevents@gmail.com"
+                href="mailto:info@alchemyevents.in"
                 className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors"
               >
                 <FaEnvelope className="text-primary" />
