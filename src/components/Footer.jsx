@@ -1,47 +1,54 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaPhone, FaEnvelope } from 'react-icons/fa';
-import Logo from '../assets/logos/logo.JPG';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaPhone,
+  FaEnvelope,
+} from "react-icons/fa";
+import Logo from "../assets/logos/logo.JPG";
 
 function Footer() {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true }
+    viewport: { once: true },
   };
 
   const socialLinks = [
-    { icon: <FaFacebookF />, href: '#' },
-    { icon: <FaInstagram />, href: '#' },
-    { icon: <FaLinkedinIn />, href: '#' },
-    { icon: <FaTwitter />, href: '#' }
+    { icon: <FaFacebookF />, href: "https://facebook.com" },
+    { icon: <FaInstagram />, href: "https://instagram.com" },
+    { icon: <FaLinkedinIn />, href: "https://in.linkedin.com/" },
+    { icon: <FaTwitter />, href: "https://x.com/?lang=en" },
   ];
 
   const quickLinks = [
-    { name: 'Why Alchemy', href: '#why-alchemy' },
-    { name: 'Brand Story', href: '#brand-story' },
-    { name: 'Vision', href: '#vision' },
-    { name: 'Contact Us', href: '#contact-us' }
+    { name: "Why Alchemy", href: "#why-alchemy" },
+    { name: "Brand Story", href: "#brand-story" },
+    { name: "Vision", href: "#vision" },
+    { name: "Contact Us", href: "#contact-us" },
   ];
 
-  const locations = [
-    'Pune',
-    'Mumbai',
-    'Delhi'
-  ];
+  const locations = ["Pune", "Mumbai", "Delhi", "Banglore"];
 
   return (
     <footer className="bg-white relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5" />
-      
+
       <div className="container mx-auto px-4 relative">
         {/* Adjust grid gap and padding for mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 py-8 sm:py-16">
           {/* Brand Section */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.1 }} className="col-span-1 md:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
+          <motion.div
+            {...fadeInUp}
+            transition={{ delay: 0.1 }}
+            className="col-span-1 md:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6"
+          >
             <img src={Logo} alt="Alchemy Events" className="h-10 sm:h-12" />
-            <p className="text-sm sm:text-base text-gray-medium font-body">
+            <p className="text-sm sm:text-base text-gray-medium font-serif">
               Transforming visions into unforgettable experiences
             </p>
             <div className="flex space-x-3 sm:space-x-4">
@@ -60,14 +67,21 @@ function Footer() {
           {/* Quick Links and Locations in a nested grid for mobile */}
           <div className="col-span-1 md:col-span-2 lg:col-span-2 grid grid-cols-2 gap-6 md:gap-12">
             {/* Quick Links */}
-            <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="space-y-4 sm:space-y-6">
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.2 }}
+              className="space-y-4 sm:space-y-6"
+            >
               <h3 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark">
                 Quick Links
               </h3>
               <ul className="space-y-2 sm:space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
+                    <a
+                      href={link.href}
+                      className="text-sm sm:text-base text-gray-medium hover:text-primary transition-colors"
+                    >
                       {link.name}
                     </a>
                   </li>
@@ -76,13 +90,20 @@ function Footer() {
             </motion.div>
 
             {/* Locations */}
-            <motion.div {...fadeInUp} transition={{ delay: 0.3 }} className="space-y-4 sm:space-y-6">
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.3 }}
+              className="space-y-4 sm:space-y-6"
+            >
               <h3 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark">
                 Locations
               </h3>
               <ul className="space-y-2 sm:space-y-3">
                 {locations.map((location) => (
-                  <li key={location} className="text-sm sm:text-base text-gray-medium">
+                  <li
+                    key={location}
+                    className="text-sm sm:text-base text-gray-medium"
+                  >
                     {location}
                   </li>
                 ))}
@@ -91,26 +112,36 @@ function Footer() {
           </div>
 
           {/* Contact Info */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.4 }} className="col-span-1 md:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
+          <motion.div
+            {...fadeInUp}
+            transition={{ delay: 0.4 }}
+            className="col-span-1 md:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6"
+          >
             <h3 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark">
               Contact Us
             </h3>
             <div className="space-y-2 sm:space-y-3">
-              <a href="tel:+1971-295-3811" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
+              <a
+                href="tel:+1971-295-3811"
+                className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors"
+              >
                 <FaPhone className="text-primary" />
-                +91 899-998-7331
+                +91 89999-87331
               </a>
-              <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
+              <a
+                href="mailto:info.alchemyevents@gmail.com"
+                className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors"
+              >
                 <FaEnvelope className="text-primary" />
-                info.alchemyevents@gmail.com
+                info@alchemyevents.in
               </a>
             </div>
           </motion.div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-100 py-4 sm:py-6 text-center text-sm sm:text-base text-gray-medium">
-          <p>&copy; {new Date().getFullYear()} Alchemy Events. All rights reserved.</p>
+        <div className="border-t border-gray-100 py-4 sm:py-6  justify-between text-center text-sm sm:text-base text-gray-medium">
+          &copy; {new Date().getFullYear()} Alchemy Events. All rights
+          reserved.Made by MJX Labs
         </div>
       </div>
     </footer>
@@ -118,4 +149,3 @@ function Footer() {
 }
 
 export default Footer;
-

@@ -65,7 +65,7 @@ function Clients() {
   }, []);
 
   return (
-    <section className="py-8 sm:py-16 bg-[#FAF9F6] relative overflow-hidden">
+    <section className="py-6 sm:py-16 bg-[#FAF9F6] relative overflow-hidden dark:bg-slate-700">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-[#FAF9F6] to-gray-50/50" />
       
       <div className="container mx-auto px-4 relative">

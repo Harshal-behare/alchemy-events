@@ -10,20 +10,19 @@ import ContactUs from './ContactUs';
 
 function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#FAF9F6] p-0">
+    <main className="container min-h-screen overflow-x-hidden bg-slate-200 p-0 m-0 dark:bg-slate-700">
       {/* Hero Carousel Section */}
-      <section className="relative h-screen overflow-hidden mb-[-95px]">
-        <ImageCarousel />
+      <section className="rounded-t-3xl sticky overflow-hidden p-0 m-0 w-[750px]">
+      <ImageCarousel />
       </section>
-
-      {/* Other Sections */}
-      <div className="relative z-10 bg-[#FAF9F6] space-y-0">
+      
+    
         <WhyAlchemy />
         <BrandStory />
         <Clients />
         <Vision />
         <ContactUs />
-      </div>
+      
       
     </main>
   );

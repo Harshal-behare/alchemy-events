@@ -63,50 +63,8 @@ function Header() {
   }, [location.pathname, isHomePage]);
 
   return (
-    <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isDark ? 'dark' : ''} ${isOpen ? 'menu-open' : ''}`}>
-      {/* <div className="top-bar backdrop-blur-sm bg-primary/5 hidden md:block">
-        <div className="top-bar__content container mx-auto px-4">
-          <p className="top-bar__tagline font-heading text-gray-700">
-            Transforming visions into unforgettable experiences
-          </p>
-          <div className="top-bar__contact flex items-center gap-6">
-            <button
-              onClick={toggleTheme}
-              className="fixed top-4 right-4 z-[60] w-12 h-12 rounded-full 
-                bg-white/10 backdrop-blur-md flex items-center justify-center 
-                text-primary dark:text-dark-text hover:bg-primary hover:text-white 
-                dark:hover:bg-primary transition-all duration-500 
-                shadow-lg hover:shadow-primary/20 dark:shadow-primary/10
-                border border-white/20 dark:border-white/10
-                transform hover:scale-110 active:scale-95"
-              aria-label="Toggle theme"
-            >
-              <motion.div
-                initial={{ rotate: 0 }}
-                animate={{ rotate: isDark ? 180 : 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="w-full h-full flex items-center justify-center"
-              >
-                {isDark ? (
-                  <FaSun className="text-xl text-yellow-400" />
-                ) : (
-                  <FaMoon className="text-xl text-primary" />
-                )}
-              </motion.div>
-            </button>
-            <a href="tel:+1971-295-3" className="flex items-center gap-2 text-primary hover:text-primary-dark">
-              <FaPhone className="text-lg" />
-              <span className="font-medium">+1 971-295-38</span>
-            </a>
-            <a href="mailto:info@alchemyevents.com" className="flex items-center gap-2 text-primary hover:text-primary-dark">
-              <FaEnvelope className="text-lg" />
-              <span className="font-medium">info@alchemyevents.com</span>
-            </a>
-          </div>
-        </div>
-      </div> */}
-
-      <nav className={`nav backdrop-blur-md ${isScrolled ? 'bg-white/90 dark:bg-gray-900/90 shadow-lg' : 'bg-transparent'}`}>
+    <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isDark ? 'dark' : ''} ${isOpen ? 'menu-open' : ''}` + "fixed"}>
+      <nav className={`nav backdrop-blur-md ${isScrolled ? 'bg-white/90 dark:bg-slate-700 shadow-lg' : 'bg-transparent'}`}>
         <div className="nav__container">
           <RouterLink 
             to="/" 
@@ -116,7 +74,7 @@ function Header() {
             <img 
               src={Logo} 
               alt="Alchemy Events" 
-              className="h-8 md:h-10 transition-all duration-300" 
+              className="h-11 md:h-13 transition-all duration-300  rounded-t-2xl rounded-b-md" 
             />
           </RouterLink>
 
@@ -125,7 +83,7 @@ function Header() {
               to="/" 
               onClick={scrollToTop}
               className={({ isActive }) => 
-                `nav__link hover:text-primary transition-colors ${isActive ? 'active route-active ' : ''}`
+                `nav__link hover:text-primary transition-colors  ${isActive ? 'active route-active ' : ''}`
               }
             >
               Home
@@ -181,7 +139,7 @@ function Header() {
             <NavLink 
               to="/wedding"
               className={({ isActive }) => 
-                `nav__link hover:text-primary transition-colors ${isActive ? 'active route-active' : ''}`
+                `nav__link hover:text-primary transition-colors font-serif ${isActive ? 'active route-active' : ''}`
               }
             >
               Wedding
@@ -195,28 +153,32 @@ function Header() {
               Blog
             </NavLink>
           </div>
-
-          <button 
-            className="nav__toggle hover:bg-primary/10 p-2 rounded-lg transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="h-6 w-6 text-gray-800"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <button
+              onClick={toggleTheme}
+              className="fixed top-4 right-4 z-[60] w-12 h-12 rounded-full 
+                bg-white/10 backdrop-blur-md flex items-center justify-center 
+                text-primary dark:text-dark-text hover:bg-primary hover:text-white 
+                dark:hover:bg-primary transition-all duration-500 
+                shadow-lg hover:shadow-primary/20 dark:shadow-primary/10
+                border border-white/20 dark:border-white/10
+                transform hover:scale-110 active:scale-95"
+              aria-label="Toggle theme"
             >
-              {isOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              <motion.div
+                initial={{ rotate: 0 }}
+                animate={{ rotate: isDark ? 180 : 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-full h-full flex items-center justify-center"
+              >
+                {isDark ? (
+                  <FaSun className="text-xl text-yellow-400" />
+                ) : (
+                  <FaMoon className="text-xl text-primary" />
+                )}
+              </motion.div>
+            </button>
+
+         
         </div>
       </nav>
 
@@ -225,7 +187,7 @@ function Header() {
           !isOpen ? 'translate-x-full' : 'translate-x-0'
         } backdrop-blur-md bg-white/95 dark:bg-gray-900/95`}
       >
-        <div className="h-full overflow-y-auto">
+        <div className="h-50 overflow-y-auto">
           <div className="flex flex-col space-y-1">
             <RouterLink to="/" onClick={scrollToTop} className="mobile-menu__link">
               Home
@@ -238,7 +200,7 @@ function Header() {
               duration={500}
               spy={true}
               activeClass="active"
-              className="mobile-menu__link"
+              className="mobile-menu__link "
               onClick={() => scrollToSection('why-alchemy')}
             >
               Why Alchemy
@@ -288,7 +250,7 @@ function Header() {
               Contact Us
             </ScrollLink>
             <div className="mobile-menu__contact">
-              <a href="tel:+1971-295-3811" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
+              <a href="tel:+91 8999987331" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
                 <FaPhone className="text-lg" />
                 <span className="font-medium">+91 899-998-7331</span>
               </a>

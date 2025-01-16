@@ -35,7 +35,7 @@ function WhyAlchemy() {
   ];
 
   return (
-    <section id="why-alchemy" className="py-4 sm:py-12 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+    <section id="why-alchemy" className="py-0 sm:py-5 bg-gradient-to-br from-gray-150 via-slate-250 to-gray-200 relative overflow-hidden dark:bg-slate-800">
       {/* Mobile-optimized decorative elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-3 sm:opacity-5" />
       <motion.div 

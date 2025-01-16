@@ -33,7 +33,7 @@ function Services() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6]">
+    <div className="min-h-screen bg-[#FAF9F6] dark:bg-slate-700">
       <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div

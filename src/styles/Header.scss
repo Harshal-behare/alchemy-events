@@ -71,11 +71,11 @@
 
     &__logo {
       img {
-        height: 3rem;
+        height: 3.5rem;
         transition: height 0.3s;
 
         @media (max-width: 768px) {
-          height: 2rem;
+          height: 2.5rem;
         }
       }
     }
@@ -402,4 +402,6 @@
       transition: all 0.3s ease;
     }
   }
+
+  font-family: 'Roboto', sans-serif;
 } 

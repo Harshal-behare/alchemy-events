@@ -45,8 +45,8 @@ function ImageCarousel() {
   ];
 
   return (
-    <div className="carousel-container relative w-full h-[60vh] md:h-[80vh] mt-[85px] mx-auto rounded-lg overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 z-[1]" />
+    <div className="carousel-container sticky w-auto h-auto sm:h-[90vh] sm:w-[100vw]  rounded-lg overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 z-[1]" />
       
       <Carousel
         showThumbs={false}
@@ -57,15 +57,16 @@ function ImageCarousel() {
         transitionTime={500}
         swipeable={true}
         emulateTouch={true}
-        className="h-full"
+        className="h-full w-full"
       >
         {carouselItems.map((item, index) => (
           <div key={index} className="relative h-full">
             <div 
-              className="absolute inset-0 bg-cover bg-center rounded-lg"
+              className="absolute inset-0 bg-cover bg-center rounded-lg bg-no-repeat"
               style={{ 
                 backgroundImage: `url(${item.image})`,
-                height: '100%',
+                height: '100rem',
+                width: '100rem',
                 filter: 'brightness(0.85)'
               }}
             />
@@ -95,7 +96,7 @@ function ImageCarousel() {
                   {item.subtitle}
                 </motion.p>
                 <motion.p
-                  className="text-sm sm:text-base md:text-lg text-white/80 mb-4 sm:mb-6 md:mb-8 font-body hidden sm:block"
+                  className="text-sm sm:text-base md:text-lg text-white/80 mb-4 sm:mb-6 md:mb-8 font-serif hidden sm:block"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
@@ -111,7 +112,7 @@ function ImageCarousel() {
                   <button className="btn btn-primary">
                     {item.cta.primary}
                   </button>
-                  <button className="btn btn-secondary">
+                  <button className="btn btn-secondary dark:bg-slate-700">
                     {item.cta.secondary}
                   </button>
                 </motion.div>

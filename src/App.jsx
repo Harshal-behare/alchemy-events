@@ -4,30 +4,38 @@ import Blog from './components/Blog';
 import Services from './components/Services';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Navigation from './components/Navigation';
 import WhyAlchemy from './components/WhyAlchemy';
 import ContactUs from './components/ContactUs';
-import Login from './components/Login';
 import Wedding from './components/Wedding';
 import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-[#FAF9F6]">
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
+      <div className="min-h-screen font-sans bg-slate-100 text-foreground dark:bg-slate-700">
+        
+      <Header />
+        <main className="container mx-auto px-4">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/wedding" element={<Wedding />} />
+          
           <Route path="/why-alchemy" element={<WhyAlchemy />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/wedding" element={<Wedding />} />
+         
           <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+          </Routes>
+          <section><WhatsAppButton /></section>
+        </main>
         <Footer />
-        <WhatsAppButton />
+       
+      
+      
+        
+        
+       
       </div>
     </Router>
   );
