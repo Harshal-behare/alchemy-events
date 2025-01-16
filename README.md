@@ -1,6 +1,6 @@
 # Alchemy Events - Corporate Event Management Platform
 
-![Alchemy Events Logo](src/assets/logos/logo.png)
+![Alchemy Events Logo](src/assets/logo.JPG)
 
 ## Overview
 
@@ -60,20 +60,12 @@ Alchemy Events is a modern, responsive web application designed for corporate ev
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/alchemy-events.git
-cd alchemy-events
+git clone https://github.com/Harshal-behare/alchemy_events.git
+cd alchemy_events
 ```
 
 2. Install dependencies
-
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. Set up environment variables
-
-```bash
-cp .env.example .env
-```
