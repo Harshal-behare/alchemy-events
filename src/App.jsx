@@ -12,7 +12,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen font-sans bg-slate-100 text-foreground dark:bg-slate-700">
+      <div className="min-h-screen font-sans bg-white text-foreground dark:bg-black">
         
       <Header />
         <main className="container mx-auto px-4">

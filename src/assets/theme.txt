@@ -1,0 +1,31 @@
+Primary Color: Teal Green (#2CD3B6)
+Accent Colors:
+Soft Sand Beige (#F4E1D2)
+Sage Green (#9DC183)
+Warm Wood Brown (#8B4513)
+
+     :root {
+       --primary: #2CD3B6; /* Teal Green */
+       --accent-sand: #F4E1D2; /* Soft Sand Beige */
+       --accent-sage: #9DC183; /* Sage Green */
+       --accent-wood: #8B4513; /* Warm Wood Brown */
+     }
+
+          body {
+       background-color: var(--accent-sand);
+       color: var(--primary);
+     }
+
+          .btn-primary {
+       background-color: var(--primary);
+       color: white;
+       transition: background-color 0.3s;
+     }
+     .btn-primary:hover {
+       background-color: var(--accent-sage);
+     }
+
+        .dark {
+     --primary: #2CD3B6; /* Keep the same primary color */
+     --accent-sand: #2A2A2A; /* Darker background for dark mode */
+   }

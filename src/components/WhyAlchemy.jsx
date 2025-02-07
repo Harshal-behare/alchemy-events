@@ -35,9 +35,9 @@ function WhyAlchemy() {
   ];
 
   return (
-    <section id="why-alchemy" className="py-0 sm:py-5 bg-gradient-to-br from-gray-150 via-slate-250 to-gray-200 relative overflow-hidden dark:bg-slate-800">
+    <section id="why-alchemy" className="py-0 sm:py-5 bg-gradient-to-br from-accent-sand via-accent-sage to-accent-wood relative overflow-hidden dark:bg-slate-800">
       {/* Mobile-optimized decorative elements */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-3 sm:opacity-5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-3 sm:opacity-5" />
       <motion.div 
         className="absolute -top-1/3 -right-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-primary/5 rounded-full blur-2xl sm:blur-3xl"
         animate={{ 

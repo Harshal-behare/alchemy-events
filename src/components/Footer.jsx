@@ -32,10 +32,13 @@ function Footer({ isDark }) {
     { name: "Contact Us", href: "#contact-us" },
   ];
 
-  const locations = ["Pune Office: A 1503, Ganga Florentina, NIBM Annex, Pune - 411060.", "Mumbai Office: 603, Romell Amore, Off Veera Desai Road, Andheri West, Mumbai - 400058."];
+  const locations = [
+    "Pune Office: A 1503, Ganga Florentina, NIBM Annex, Pune - 411060.",
+    "Mumbai Office: 603, Romell Amore, Off Veera Desai Road, Andheri West, Mumbai - 400058.",
+  ];
 
   return (
-    <footer className="bg-white relative overflow-hidden">
+    <footer className={`bg-white relative overflow-hidden ${isDark ? 'bg-gray-800' : 'bg-accent-sand'}`}>
       {/* Decorative Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5" />
 
@@ -48,7 +51,11 @@ function Footer({ isDark }) {
             transition={{ delay: 0.1 }}
             className="col-span-1 md:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6"
           >
-            <img src={isDark ? LogoDark : Logo} alt="Alchemy Events" className="h-10 sm:h-12" />
+            <img 
+              src={isDark ? LogoDark : Logo}
+              alt="Alchemy Events" 
+              className="h-10 sm:h-12" 
+            />
             <p className="text-sm sm:text-base text-gray-medium font-serif">
               Transforming visions into unforgettable experiences
             </p>
@@ -140,7 +147,7 @@ function Footer({ isDark }) {
           </motion.div>
         </div>
 
-        <div className="border-t border-gray-100 py-4 sm:py-6  justify-between text-center text-sm sm:text-base text-gray-medium">
+        <div className="border-t border-gray-100 py-4 sm:py-6 justify-between text-center text-sm sm:text-base text-gray-medium">
           &copy; {new Date().getFullYear()} Alchemy Events. All rights
           reserved.Made by MJX Labs
         </div>

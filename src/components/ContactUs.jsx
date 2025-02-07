@@ -35,7 +35,7 @@ function ContactUs() {
         }
       );
 
-      if (response.ok || response.status === 200 || response.status === 201 || response.status === 302) {
+      if (response.ok) {
         setFormData({ Name: '', Email: '', Message: '' });
         setStatus({
           type: 'success',
@@ -62,7 +62,7 @@ function ContactUs() {
   };
 
   return (
-    <section id="contact-us" className="py-12 sm:py-24 bg-white relative overflow-hidden">
+    <section id="contact-us" className="py-12 sm:py-24 bg-gray-900 relative overflow-hidden dark:bg-gray-800">
       {/* Decorative Elements */}
       <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent" />
       <motion.div 
@@ -81,8 +81,8 @@ function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Let's Connect</h2>
-          <p className="text-gray-medium font-body max-w-2xl mx-auto text-sm sm:text-base">
+          <h2 className="section-title text-white">Let's Connect</h2>
+          <p className="text-gray-300 font-body max-w-2xl mx-auto text-sm sm:text-base">
             Ready to create something amazing together? We're here to turn your vision into reality.
           </p>
         </motion.div>

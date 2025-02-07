@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link as RouterLink, NavLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import Logo from "../assets/logos/logo.jpg";
+import LogoDark from "../assets/logos/logoDark.jpg";
 import { FaPhone, FaEnvelope, FaSun, FaMoon } from 'react-icons/fa';
 import '../styles/Header.scss';
 import { motion } from 'framer-motion';
@@ -64,7 +65,7 @@ function Header() {
 
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isDark ? 'dark' : ''} ${isOpen ? 'menu-open' : ''}` + "fixed"}>
-      <nav className={`nav backdrop-blur-md ${isScrolled ? 'bg-white/90 dark:bg-slate-700 shadow-lg' : 'bg-transparent'}`}>
+      <nav className={`nav backdrop-blur-md ${isScrolled ? 'bg-accent-sand dark:bg-slate-700 shadow-lg' : 'bg-transparent'}`}>
         <div className="nav__container">
           <RouterLink 
             to="/" 
@@ -72,7 +73,7 @@ function Header() {
             onClick={scrollToTop}
           >
             <img 
-              src={Logo} 
+              src={isDark ? LogoDark : Logo}
               alt="Alchemy Events" 
               className="h-11 md:h-13 transition-all duration-300  rounded-t-2xl rounded-b-md" 
             />
@@ -250,11 +251,11 @@ function Header() {
               Contact Us
             </ScrollLink>
             <div className="mobile-menu__contact">
-              <a href="tel:+91 8999987331" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
+              <a href="tel:+91 8999987331" className="flex items-center gap-2 text-primary hover:text-accent-sage transition-colors">
                 <FaPhone className="text-lg" />
                 <span className="font-medium">+91 899-998-7331</span>
               </a>
-              <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors">
+              <a href="mailto:info.alchemyevents@gmail.com" className="flex items-center gap-2 text-primary hover:text-accent-sage transition-colors">
                 <FaEnvelope className="text-lg" />
                 <span className="font-medium">info.alchemyevents@gmail.com</span>
               </a>
