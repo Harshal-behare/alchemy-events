@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link as RouterLink, NavLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
-import Logo from "../assets/logos/logo1.JPG";
+import Logo from "../assets/logos/logo.jpg";
 import { FaPhone, FaEnvelope, FaSun, FaMoon } from 'react-icons/fa';
 import '../styles/Header.scss';
 import { motion } from 'framer-motion';
