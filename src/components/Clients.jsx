@@ -7,7 +7,7 @@ import godrejLogo from '../assets/logos/godrej-logo.webp';
 import appleLogo from '../assets/logos/apple-logo.jpg';
 import goldmanLogo from '../assets/logos/goldman-logo.jpg';
 
-function Clients() {
+function Clients({ isDark }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [visibleLogos, setVisibleLogos] = useState([]);
 

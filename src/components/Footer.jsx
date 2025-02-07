@@ -8,9 +8,10 @@ import {
   FaPhone,
   FaEnvelope,
 } from "react-icons/fa";
-import Logo from "../assets/logos/logo.JPG";
+import Logo from "../assets/logos/logo.jpg";
+import LogoDark from "../assets/logos/logoDark.jpg";
 
-function Footer() {
+function Footer({ isDark }) {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -31,7 +32,7 @@ function Footer() {
     { name: "Contact Us", href: "#contact-us" },
   ];
 
-  const locations = ["Pune", "Mumbai", "Delhi", "Banglore"];
+  const locations = ["Pune Office: A 1503, Ganga Florentina, NIBM Annex, Pune - 411060.", "Mumbai Office: 603, Romell Amore, Off Veera Desai Road, Andheri West, Mumbai - 400058."];
 
   return (
     <footer className="bg-white relative overflow-hidden">
@@ -47,7 +48,7 @@ function Footer() {
             transition={{ delay: 0.1 }}
             className="col-span-1 md:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6"
           >
-            <img src={Logo} alt="Alchemy Events" className="h-10 sm:h-12" />
+            <img src={isDark ? LogoDark : Logo} alt="Alchemy Events" className="h-10 sm:h-12" />
             <p className="text-sm sm:text-base text-gray-medium font-serif">
               Transforming visions into unforgettable experiences
             </p>
@@ -122,11 +123,11 @@ function Footer() {
             </h3>
             <div className="space-y-2 sm:space-y-3">
               <a
-                href="tel:8999987331"
+                href="tel:8446669100"
                 className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors"
               >
                 <FaPhone className="text-primary" />
-                +91 89999-87331
+                +91 8446669100
               </a>
               <a
                 href="mailto:info@alchemyevents.in"

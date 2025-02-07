@@ -3,7 +3,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function WhatsAppButton() {
-  const whatsappNumber = '+91 8999987331';
+  const whatsappNumber = '+91 8446669100';
   const whatsappMessage = 'Hello, I would like to know more about your services.';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 

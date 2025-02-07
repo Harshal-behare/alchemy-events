@@ -11,6 +11,11 @@
 .dark {
   @apply bg-[#1E1E1E] text-white;
   background-image: linear-gradient(to bottom, #1E1E1E, #232323);
+
+  /* New rule to set all text to white */
+  * {
+    color: white; /* Set all text to white in dark mode */
+  }
 }
 
 .dark .card {

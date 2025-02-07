@@ -12,7 +12,7 @@ import wedding6 from '../assets/images/wedding6.jpg';
 import wedding7 from '../assets/images/wedding7.jpg';
 import wedding8 from '../assets/images/wedding8.jpg';
 
-function Wedding() {
+function Wedding({ isDark }) {
   const weddingImages = [
     {
       id: 1,
@@ -65,8 +65,8 @@ function Wedding() {
   ];
 
   return (
-    <div className="wedding-container min-h-screen bg-[#FAF9F6]">
-      <div className="wedding-grid-container px-5 py-10">
+    <div className={`wedding-container min-h-screen ${isDark ? 'bg-[#1E1E1E]' : 'bg-[#FAF9F6]'}`}>
+      <div className={`wedding-grid-container px-5 py-10 ${isDark ? 'bg-[#1E1E1E]' : 'bg-[#FAF9F6]'}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {weddingImages.slice(0, 4).map((item) => (
             <motion.div
@@ -84,9 +84,9 @@ function Wedding() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  <div className={`absolute bottom-0 left-0 right-0 p-4 ${isDark ? 'text-gray-300' : 'text-black'}`}>
                     <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-sm text-white/80">{item.description}</p>
+                    <p className="text-sm">{item.description}</p>
                   </div>
                 </div>
               </div>
@@ -112,9 +112,9 @@ function Wedding() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  <div className={`absolute bottom-0 left-0 right-0 p-4 ${isDark ? 'text-gray-300' : 'text-black'}`}>
                     <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-sm text-white/80">{item.description}</p>
+                    <p className="text-sm">{item.description}</p>
                   </div>
                 </div>
               </div>

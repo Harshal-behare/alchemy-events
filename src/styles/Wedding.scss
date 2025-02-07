@@ -34,15 +34,19 @@
   }
 
   .service-card {
-    @apply bg-gray-800 text-white;
+    @apply bg-gray-800 text-gray-300;
     
     p {
-      @apply text-gray-300;
+      @apply text-gray-400;
     }
     
     li {
-      @apply text-gray-400;
+      @apply text-gray-500;
     }
+  }
+
+  .wedding-card {
+    @apply bg-gray-800;
   }
 }
 

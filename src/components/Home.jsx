@@ -12,7 +12,7 @@ function Home() {
   return (
     <main className="container min-h-screen overflow-x-hidden bg-slate-200 p-0 m-0 dark:bg-slate-700">
       {/* Hero Carousel Section */}
-      <section className="rounded-t-3xl sticky overflow-hidden p-0 m-0 w-[750px]">
+      <section className="rounded-t-3xl sticky overflow-hidden p-0 m-0 w-[100%]">
       <ImageCarousel />
       </section>
       
