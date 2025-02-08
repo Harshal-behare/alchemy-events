@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-scroll';
 import { FaHandshake, FaLightbulb, FaChartLine, FaMagic } from 'react-icons/fa';
 
 function WhyAlchemy() {
@@ -129,9 +130,15 @@ function WhyAlchemy() {
           <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-base">
             Ready to create an unforgettable event?
           </p>
-          <button className="btn btn-primary text-sm sm:text-base w-full sm:w-auto">
+          <Link 
+            to="contact-us"
+            smooth={true}
+            offset={-100}
+            duration={500}
+            className="btn btn-primary text-sm sm:text-base w-full sm:w-auto"
+          >
             Let's Plan Together
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -69,7 +69,7 @@ function BrandStory() {
           viewport={{ once: true }}
           className="text-center mb-6 sm:mb-16"
         >
-          <h2 className="section-title">Brand Story: An Eventful Bunch</h2>
+          <h2 className="section-title">Brand Story</h2>
           <p className="text-gray-medium font-body max-w-2xl mx-auto text-sm sm:text-base">
           May of 2010, armed with passion and vision, we began our journey. Today, we've grown 
           by leaps and bounds to carve out a unique space in the events industry.
