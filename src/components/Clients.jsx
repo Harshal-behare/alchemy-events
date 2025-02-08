@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import audiLogo from '../assets/logos/audi-logo.png';
 import mercedesLogo from '../assets/logos/mercedes-logo.webp';
 import godrejLogo from '../assets/logos/godrej-logo.webp';
 import appleLogo from '../assets/logos/apple-logo.jpg';
 import goldmanLogo from '../assets/logos/goldman-logo.jpg';
 
-function Clients({ isDark }) {
+function Clients() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [visibleLogos, setVisibleLogos] = useState([]);
 
-  const clients = [
+  const clients = useMemo(() => [
     { name: 'Audi', logo: audiLogo },
     { name: 'Mercedes', logo: mercedesLogo },
     { name: 'Apple', logo: appleLogo },
     { name: 'Goldman Sachs', logo: goldmanLogo },
     { name: 'Godrej Properties', logo: godrejLogo },
-  ];
+  ], []);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);

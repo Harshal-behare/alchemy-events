@@ -14,15 +14,59 @@ import wedding8 from '../assets/images/wedding8.jpg';
 
 function Wedding({ isDark }) {
   const weddingImages = [
-    { id: 1, image: wedding1, title: "Horning's Hideout Venue", description: "Outdoor wedding celebration" },
-    { id: 2, image: wedding2, title: "Yamini and Nick Mehendi", description: "Traditional ceremony" },
-    { id: 3, image: wedding3, title: "Elegant Indoor Ceremony", description: "A beautiful indoor setup" },
-    // Add more images as needed
+    {
+      id: 1,
+      image: wedding1,
+      title: "Horning's Hideout Venue",
+      description: "Outdoor wedding celebration"
+    },
+    {
+      id: 2,
+      image: wedding2,
+      title: "Yamini and Nick Mehendi",
+      description: "Traditional ceremony"
+    },
+    {
+      id: 3,
+      image: wedding3,
+      title: "Ian and Julie's send-off",
+      description: "Evening celebration"
+    },
+    {
+      id: 4,
+      image: wedding4,
+      title: "Casa Bella, California",
+      description: "Traditional Indian wedding"
+    },
+    {
+      id: 5,
+      image: wedding5,
+      title: "Mountain View Ceremony",
+      description: "Outdoor wedding"
+    },
+    {
+      id: 6,
+      image: wedding6,
+      title: "Sunset Celebration",
+      description: "Evening reception"
+    },
+    {
+      id: 7,
+      image: wedding7,
+      title: "Garden Party",
+      description: "Outdoor reception"
+    },
+    {
+      id: 8,
+      image: wedding8,
+      title: "Evening Dance",
+      description: "Reception celebration"
+    }
   ];
 
   return (
     <div className="wedding-container">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {weddingImages.map((item) => (
           <motion.div key={item.id} className="wedding-card group" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <div className="relative overflow-hidden rounded-lg aspect-[4/3]">

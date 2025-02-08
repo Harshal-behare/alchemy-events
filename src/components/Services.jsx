@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FaHandshake, FaGlassCheers, FaUsers, FaAward, FaBriefcase } from 'react-icons/fa';
+import { FaHandshake, FaGlassCheers } from 'react-icons/fa';
 
 function Services() {
   const navigate = useNavigate();

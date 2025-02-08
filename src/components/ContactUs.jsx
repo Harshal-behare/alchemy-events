@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPhone, FaCalendar, FaEnvelope } from 'react-icons/fa';
+import { FaPhone, FaCalendar } from 'react-icons/fa';
 
 function ContactUs() {
   const [formData, setFormData] = useState({
@@ -55,11 +55,11 @@ function ContactUs() {
     }
   };
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
-  };
+  // const fadeInUp = {
+  //   initial: { opacity: 0, y: 20 },
+  //   animate: { opacity: 1, y: 0 },
+  //   transition: { duration: 0.5 }
+  // };
 
   return (
     <section id="contact-us" className="py-12 sm:py-24 bg-white relative overflow-hidden dark:bg-gray-800">
