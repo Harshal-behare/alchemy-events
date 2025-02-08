@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link as RouterLink, NavLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
-import Logo from "../assets/logos/logo.jpg";
+// import Logo from "../assets/logos/logo.jpg";
 import LogoDark from "../assets/logos/logoDark.jpg";
 import { FaPhone, FaEnvelope, FaSun, FaMoon } from 'react-icons/fa';
 import '../styles/Header.scss';
@@ -73,7 +73,7 @@ function Header() {
             onClick={scrollToTop}
           >
             <img 
-              src={isDark ? LogoDark : Logo}
+              src={LogoDark }
               alt="Alchemy Events" 
               className="h-11 md:h-13 transition-all duration-300  rounded-t-2xl rounded-b-md" 
             />
