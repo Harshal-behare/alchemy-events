@@ -103,7 +103,7 @@ function Clients() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-4 text-gray-600 text-sm sm:text-base">
+          <div className="max-w-3xl mx-auto space-y-4 text-gray-600 text-base sm:text-base">
              <p>Over the years, clients from diverse sectors and industries have trusted us with their events!</p>
              <p>Our funda has been simple throughout: To meet and exceed the expectations of all briefs!</p>
              <p>Creating enough brand recall, perfect environments for networking, summits, AGMs, we understand your needs when it comes to events.</p>

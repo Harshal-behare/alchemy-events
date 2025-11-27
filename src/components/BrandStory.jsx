@@ -70,12 +70,22 @@ function BrandStory() {
           className="text-center mb-6 sm:mb-16"
         >
           <h2 className="section-title">Brand Story</h2>
-          <h3 className="text-xl font-semibold text-primary mt-2 mb-4">An Eventful Bunch</h3>
           <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base mb-4">
           May of 2010, armed with a graduation from Bhartiya Vidyapeeth, Rahul Sharma founded Alchemy events while still studying in the city of Pune. Today, the company has grown by leaps and bounds to carve out a unique space for itself in the events industry.
           </p>
-          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base">
+          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base mb-6">
           Clarity of thought has been key to this growth story as the founder has, for as long as he can remember, been driven to organize events. As a student, as a professional and even as a family man, it is his zest for creating a beautiful and memorable experience that has studded Alchemy today among the big names in the events industry!
+          </p>
+          
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-4">An Eventful Bunch</h3>
+          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base mb-4">
+          The team at Alchemy Events is sure to take you by surprise because of the level of involvement and quick responses in execution. Yeah, we take pride in our turn-around-time.
+          </p>
+          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base mb-4">
+          Be it any modifications, change in plan or improvisation, we stand by you shoulder-to-shoulder while creating a rich brand experience for your associates, partners or employees.
+          </p>
+          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base">
+          A firm believer in leading from the front, Rahul has built a strong team, nurtured a talent pool of enthusiastic professionals over the years and executed brand experiences for clients across industries of automobile, energy, real estate, technology, business service providers and more!
           </p>
         </motion.div>
 
@@ -127,9 +137,9 @@ function BrandStory() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <button className="btn btn-primary text-sm sm:text-base">
+          {/* <button className="btn btn-primary text-sm sm:text-base">
             Explore Our Journey
-          </button>
+          </button> */}
         </motion.div>
       </div>
     </section>

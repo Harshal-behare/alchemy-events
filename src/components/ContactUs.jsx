@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPhone, FaCalendar } from 'react-icons/fa';
+import { FaPhone } from 'react-icons/fa';
 
 function ContactUs() {
   const [formData, setFormData] = useState({
@@ -55,12 +55,6 @@ function ContactUs() {
     }
   };
 
-  // const fadeInUp = {
-  //   initial: { opacity: 0, y: 20 },
-  //   animate: { opacity: 1, y: 0 },
-  //   transition: { duration: 0.5 }
-  // };
-
   return (
     <section id="contact-us" className="py-12 sm:py-24 bg-white relative overflow-hidden dark:bg-gray-800">
       {/* Decorative Elements */}
@@ -83,7 +77,7 @@ function ContactUs() {
         >
           <h2 className="section-title text-black">Hello!</h2>
           <p className="text-gray-600 font-body max-w-2xl mx-auto text-sm sm:text-base italic mt-2">
-            If you can think it, we will build it | Let’s Create Magic Together
+            If you can think it, we will build it | Let's Create Magic Together
           </p>
         </motion.div>
 
@@ -162,31 +156,6 @@ function ContactUs() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            {/* Schedule Appointment Card */}
-            <div className="card group hover:shadow-lg transition-all duration-300">
-              <div className="flex items-start space-x-4 sm:space-x-6">
-                <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 group-hover:scale-110 transition-transform">
-                  <FaCalendar className="text-primary text-xl sm:text-2xl" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark mb-2">
-                    Meet Us
-                  </h4>
-                  <p className="text-gray-medium font-body text-sm sm:text-base mb-3">
-                    Coffees and conversation - Set appointment
-                  </p>
-                  <a 
-                    href="https://calendly.com/your-calendar-link" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary inline-block text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3"
-                  >
-                    Book a Meeting
-                  </a>
-                </div>
-              </div>
-            </div>
-
             {/* Call Us Card */}
             <div className="card group hover:shadow-lg transition-all duration-300">
               <div className="flex items-start space-x-4 sm:space-x-6">
@@ -217,4 +186,3 @@ function ContactUs() {
 }
 
 export default ContactUs;
-
