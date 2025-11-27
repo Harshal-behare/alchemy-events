@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FaHandshake, FaGlassCheers } from 'react-icons/fa';
+import { FaHandshake, FaGlassCheers, FaBullhorn, FaTrophy, FaUsers, FaRocket } from 'react-icons/fa';
 
 function Services() {
   const navigate = useNavigate();
@@ -10,26 +10,75 @@ function Services() {
     {
       icon: <FaHandshake />,
       title: "Corporate Meetings",
-      description: "Professional meeting management for board meetings, stakeholder gatherings, and team sessions",
+      description: "Professional meeting management for board meetings, stakeholder gatherings, and strategic planning sessions with seamless execution.",
       features: [
+        "Board Meetings & AGMs",
         "Venue Selection & Setup",
-        "Technical Equipment",
-        "Catering Services",
-        "Documentation"
+        "Audio-Visual Equipment",
+        "Catering & Hospitality",
+        "Documentation & Minutes"
+      ]
+    },
+    {
+      icon: <FaTrophy />,
+      title: "Incentive Programs",
+      description: "Reward your top performers with meticulously planned incentive trips and recognition events that inspire and motivate.",
+      features: [
+        "Award Ceremonies",
+        "Team Building Activities",
+        "Destination Management",
+        "Recognition Events",
+        "Custom Trophies & Gifts"
+      ]
+    },
+    {
+      icon: <FaUsers />,
+      title: "Conferences & Summits",
+      description: "Large-scale conferences bringing industries together with cutting-edge technology, seamless coordination, and memorable experiences.",
+      features: [
+        "Industry Summits",
+        "Trade Shows & Exhibitions",
+        "Speaker Management",
+        "Registration Systems",
+        "Live Streaming & Hybrid Events"
       ]
     },
     {
       icon: <FaGlassCheers />,
       title: "Corporate Events",
-      description: "End-to-end event management for corporate celebrations and milestones",
+      description: "Transform ordinary occasions into extraordinary experiences with our creative planning and meticulous attention to detail.",
       features: [
-        "Event Planning",
-        "Venue Management",
-        "Entertainment",
-        "Catering"
+        "Annual Day Celebrations",
+        "Team Outings & Picnics",
+        "Festival Celebrations",
+        "Milestone Events",
+        "Employee Engagement"
+      ]
+    },
+    {
+      icon: <FaRocket />,
+      title: "Product Launches",
+      description: "Create buzz and excitement around your new products with impactful launch events that leave lasting impressions.",
+      features: [
+        "Launch Event Planning",
+        "Media Management",
+        "Brand Activations",
+        "Demo Setups",
+        "Post-Event Analytics"
+      ]
+    },
+    {
+      icon: <FaBullhorn />,
+      title: "Brand Activations",
+      description: "Engage your audience with immersive brand experiences that create meaningful connections and drive business results.",
+      features: [
+        "Experiential Marketing",
+        "Pop-up Events",
+        "Roadshows",
+        "Mall Activations",
+        "Social Media Integration"
       ]
     }
-    // ... other services
   ];
 
   return (

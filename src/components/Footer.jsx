@@ -32,6 +32,12 @@ function Footer({ isDark }) {
     { name: "Contact Us", href: "#contact-us" },
   ];
 
+  const legalLinks = [
+    { name: "FAQ", href: "/faq" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms & Conditions", href: "/terms-conditions" },
+  ];
+
   const locations = [
     "Pune Office: A 1503, Ganga Florentina, NIBM Annex, Pune - 411060.",
     "Mumbai Office: 603, Romell Amore, Off Veera Desai Road, Andheri West, Mumbai - 400058.",
@@ -72,8 +78,8 @@ function Footer({ isDark }) {
             </div>
           </motion.div>
 
-          {/* Quick Links and Locations in a nested grid for mobile */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-2 grid grid-cols-2 gap-6 md:gap-12">
+          {/* Quick Links, Legal Links, and Locations in a nested grid for mobile */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {/* Quick Links */}
             <motion.div
               {...fadeInUp}
@@ -97,11 +103,34 @@ function Footer({ isDark }) {
               </ul>
             </motion.div>
 
+            {/* Legal Links */}
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.25 }}
+              className="space-y-4 sm:space-y-6"
+            >
+              <h3 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark">
+                Legal
+              </h3>
+              <ul className="space-y-2 sm:space-y-3">
+                {legalLinks.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-sm sm:text-base text-gray-medium hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
             {/* Locations */}
             <motion.div
               {...fadeInUp}
               transition={{ delay: 0.3 }}
-              className="space-y-4 sm:space-y-6"
+              className="space-y-4 sm:space-y-6 col-span-2 md:col-span-1"
             >
               <h3 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark">
                 Locations

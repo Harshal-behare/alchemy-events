@@ -6,6 +6,7 @@ function ContactUs() {
   const [formData, setFormData] = useState({
     Name: '',
     Email: '',
+    Phone: '',
     Message: ''
   });
   const [loading, setLoading] = useState(false);
@@ -36,7 +37,7 @@ function ContactUs() {
       );
 
       if (response.ok) {
-        setFormData({ Name: '', Email: '', Message: '' });
+        setFormData({ Name: '', Email: '', Phone: '', Message: '' });
         setStatus({
           type: 'success',
           message: 'Thank you for your message! We will get back to you soon.'
@@ -110,6 +111,7 @@ function ContactUs() {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
+                    minLength="2"
                     className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body text-sm sm:text-base"
                   />
                 </div>
@@ -124,6 +126,18 @@ function ContactUs() {
                     className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body text-sm sm:text-base"
                   />
                 </div>
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  name="Phone"
+                  value={formData.Phone}
+                  onChange={handleChange}
+                  placeholder="Your Phone Number (Optional)"
+                  pattern="[0-9]{10}"
+                  className="w-full p-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-body text-sm sm:text-base"
+                />
+                <p className="text-xs text-gray-500 mt-1">Format: 10 digits (e.g., 9876543210)</p>
               </div>
               <div>
                 <textarea
