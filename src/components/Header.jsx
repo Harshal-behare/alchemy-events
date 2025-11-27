@@ -130,14 +130,6 @@ function Header() {
               Contact Us
             </ScrollLink>
             <NavLink 
-              to="/services"
-              className={({ isActive }) => 
-                `nav__link hover:text-primary transition-colors ${isActive ? 'active route-active' : ''}`
-              }
-            >
-              Services
-            </NavLink>
-            <NavLink 
               to="/wedding"
               className={({ isActive }) => 
                 `nav__link hover:text-primary transition-colors font-serif ${isActive ? 'active route-active' : ''}`
@@ -217,15 +209,6 @@ function Header() {
                 Why Alchemy
               </NavLink>
             )}
-            <NavLink 
-              to="/services"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) => 
-                `mobile-menu__link ${isActive ? 'active route-active' : ''}`
-              }
-            >
-              Services
-            </NavLink>
             <RouterLink to="/wedding" onClick={() => setIsOpen(false)} className="mobile-menu__link">Wedding</RouterLink>
             <ScrollLink
               to="vision"

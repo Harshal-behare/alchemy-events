@@ -81,9 +81,9 @@ function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title text-black">Let's Connect</h2>
-          <p className="text-gray-600 font-body max-w-2xl mx-auto text-sm sm:text-base">
-            Ready to create something amazing together? We're here to turn your vision into reality.
+          <h2 className="section-title text-black">Hello!</h2>
+          <p className="text-gray-600 font-body max-w-2xl mx-auto text-sm sm:text-base italic mt-2">
+            If you can think it, we will build it | Let’s Create Magic Together
           </p>
         </motion.div>
 
@@ -97,7 +97,7 @@ function ContactUs() {
             transition={{ delay: 0.2 }}
           >
             <h3 className="text-xl sm:text-2xl font-heading font-semibold text-gray-dark">
-              Send us a Message
+              Write to Us
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {status.message && (
@@ -170,10 +170,10 @@ function ContactUs() {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark mb-2">
-                    Schedule an Appointment
+                    Meet Us
                   </h4>
                   <p className="text-gray-medium font-body text-sm sm:text-base mb-3">
-                    Let's discuss your event in detail
+                    Coffees and conversation - Set appointment
                   </p>
                   <a 
                     href="https://calendly.com/your-calendar-link" 
@@ -195,16 +195,16 @@ function ContactUs() {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-lg sm:text-xl font-heading font-semibold text-gray-dark mb-2">
-                    Call Us
+                    Grab the Phone & Say Hello!
                   </h4>
                   <p className="text-gray-medium font-body text-sm sm:text-base mb-3">
                     Ready to discuss your event?
                   </p>
                   <a 
-                    href="tel:+1971-295-3811" 
+                    href="tel:+91 95031 70005" 
                     className="btn btn-primary inline-block text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3"
                   >
-                    +1 971-295-3811
+                    +91 95031 70005
                   </a>
                 </div>
               </div>

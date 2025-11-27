@@ -8,6 +8,7 @@ function WhyAlchemy() {
     {
       letter: "M",
       title: "Meetings",
+      subtitle: "Making",
       description: "From intimate board meetings to large corporate gatherings, we create engaging spaces for collaboration and decision-making.",
       icon: <FaHandshake className="text-xl sm:text-2xl" />,
       features: ["Board Meetings", "Team Sessions", "Strategic Planning"]
@@ -15,6 +16,7 @@ function WhyAlchemy() {
     {
       letter: "I",
       title: "Incentives",
+      subtitle: "Interesting",
       description: "Reward your top performers with meticulously planned experiences that inspire and motivate.",
       icon: <FaLightbulb className="text-xl sm:text-2xl" />,
       features: ["Award Ceremonies", "Team Building", "Recognition Events"]
@@ -22,6 +24,7 @@ function WhyAlchemy() {
     {
       letter: "C",
       title: "Conferences",
+      subtitle: "Corporate",
       description: "Large-scale events that bring industries together, featuring cutting-edge technology and seamless coordination.",
       icon: <FaChartLine className="text-xl sm:text-2xl" />,
       features: ["Industry Summits", "Trade Shows", "Global Conferences"]
@@ -29,6 +32,7 @@ function WhyAlchemy() {
     {
       letter: "E",
       title: "Events",
+      subtitle: "Events",
       description: "Transform ordinary occasions into extraordinary experiences with our creative and meticulous planning.",
       icon: <FaMagic className="text-xl sm:text-2xl" />,
       features: ["Product Launches", "Galas", "Corporate Celebrations"]
@@ -56,11 +60,14 @@ function WhyAlchemy() {
           viewport={{ once: true }}
         >
           <span className="text-primary font-semibold text-xs sm:text-base tracking-wider uppercase mb-1 sm:mb-2 block">
-            Our Expertise
+            Value System Or Brand Values
           </span>
-          <h2 className="section-title text-2xl sm:text-4xl mb-2 sm:mb-4">The MICE Advantage</h2>
-          <p className="text-gray-600 font-body max-w-2xl mx-auto text-sm sm:text-base mt-2 sm:mt-4 px-2">
-            We specialize in MICE - the four pillars of corporate events that transform your vision into reality.
+          <h2 className="section-title text-2xl sm:text-4xl mb-2 sm:mb-4">Why Alchemy for Events?</h2>
+          <p className="text-gray-600 font-body max-w-2xl mx-auto text-sm sm:text-base mt-2 sm:mt-4 px-2 italic">
+            Nothing excites us more than blowing life into your events!
+          </p>
+          <p className="text-gray-600 font-body max-w-2xl mx-auto text-sm sm:text-base mt-2 px-2">
+            Explaining MICE and our potential in the format with a zing. Widening the appeal to start-ups and multi-national corporations as also for not-for-profit summits at the same time.
           </p>
         </motion.div>
 
@@ -98,10 +105,13 @@ function WhyAlchemy() {
 
                     {/* Mobile-optimized content */}
                     <div className="flex-1">
-                      <h3 className="text-base sm:text-xl font-heading font-semibold mb-1 sm:mb-2 text-gray-800">
+                      <h3 className="text-base sm:text-xl font-heading font-semibold mb-0.5 text-gray-800">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-gray-600 font-body mb-2 sm:mb-3 line-clamp-2">
+                      <span className="text-primary font-medium text-sm italic mb-2 block">
+                        {item.subtitle}
+                      </span>
+                      <p className="text-xs sm:text-sm text-gray-600 font-body mb-2 sm:mb-3 line-clamp-3">
                         {item.description}
                       </p>
                       <ul className="space-y-0.5 sm:space-y-1">
