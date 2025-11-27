@@ -3,7 +3,7 @@ import { Link as RouterLink, NavLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import Logo from "../assets/logos/logo.jpg";
 import LogoDark from "../assets/logos/logoDark.jpg";
-import { FaPhone, FaEnvelope, FaSun, FaMoon } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import '../styles/Header.scss';
 import { motion } from 'framer-motion';
 
@@ -146,6 +146,23 @@ function Header() {
               Blog
             </NavLink>
           </div>
+          
+          {/* Hamburger Menu Button for Mobile */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden fixed top-4 right-20 z-[60] w-12 h-12 rounded-full 
+              bg-white/10 backdrop-blur-md flex items-center justify-center 
+              text-primary dark:text-dark-text hover:bg-primary hover:text-white 
+              dark:hover:bg-primary transition-all duration-500 
+              shadow-lg hover:shadow-primary/20 dark:shadow-primary/10
+              border border-white/20 dark:border-white/10
+              transform hover:scale-110 active:scale-95"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+          </button>
+
+          {/* Theme Toggle Button */}
           <button
               onClick={toggleTheme}
               className="fixed top-4 right-4 z-[60] w-12 h-12 rounded-full 

@@ -65,8 +65,8 @@ function ImageCarousel() {
               className="absolute inset-0 bg-cover bg-center rounded-lg bg-no-repeat"
               style={{ 
                 backgroundImage: `url(${item.image})`,
-                height: '100rem',
-                width: '100rem',
+                height: '100%',
+                width: '100%',
                 filter: 'brightness(0.85)'
               }}
             />

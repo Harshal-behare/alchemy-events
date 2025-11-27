@@ -4,6 +4,7 @@ import WhyAlchemy from './WhyAlchemy';
 import BrandStory from './BrandStory';
 import Vision from './Vision';
 import Clients from './Clients';
+import Testimonials from './Testimonials';
 import ContactUs from './ContactUs';
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
         <WhyAlchemy />
         <BrandStory />
         <Clients />
+        <Testimonials />
         <Vision />
         <ContactUs />
     </main>
