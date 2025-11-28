@@ -137,14 +137,14 @@ function Header() {
             >
               Weddings
             </NavLink>
-            <NavLink 
+            {/* <NavLink 
               to="/blog"
               className={({ isActive }) => 
                 `nav__link hover:text-primary transition-colors ${isActive ? 'active route-active' : ''}`
               }
             >
               Blog
-            </NavLink>
+            </NavLink> */}
             
             {/* Theme Toggle Button - Desktop */}
             <button

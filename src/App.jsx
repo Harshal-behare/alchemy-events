@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 
 import Home from "./components/Home";
 import Blog from "./components/Blog";
-import Services from "./components/Services";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhyAlchemy from "./components/WhyAlchemy";
@@ -47,8 +46,8 @@ function App() {
         <main id="main-content" className="pt-4">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/services" element={<Services />} />
+            {/* <Route path="/blog" element={<Blog />} /> */}
+            
             <Route path="/wedding" element={<Wedding />} />
             <Route path="/why-alchemy" element={<WhyAlchemy />} />
             <Route path="/contact" element={<ContactUs />} />
