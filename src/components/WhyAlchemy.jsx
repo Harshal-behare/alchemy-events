@@ -1,79 +1,109 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
-import { FaHandshake, FaLightbulb, FaChartLine, FaMagic } from 'react-icons/fa';
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
+import { FaHandshake, FaLightbulb, FaChartLine, FaMagic } from "react-icons/fa";
 
 function WhyAlchemy() {
   const miceItems = [
     {
       letter: "M",
       title: "Making",
-      description: "From intimate board meetings to large corporate gatherings, we create engaging spaces for collaboration and decision-making.",
+      description:
+        "From intimate board meetings to large corporate gatherings, we create engaging spaces for collaboration and decision-making.",
       icon: <FaHandshake className="text-xl sm:text-2xl" />,
-      features: ["Board Meetings", "Team Sessions", "Strategic Planning"]
+      features: ["Board Meetings", "Team Sessions", "Strategic Planning"],
     },
     {
       letter: "I",
       title: "Interesting",
-      description: "Reward your top performers with meticulously planned experiences that inspire and motivate.",
+      description:
+        "Reward your top performers with meticulously planned experiences that inspire and motivate.",
       icon: <FaLightbulb className="text-xl sm:text-2xl" />,
-      features: ["Award Ceremonies", "Team Building", "Recognition Events"]
+      features: ["Award Ceremonies", "Team Building", "Recognition Events"],
     },
     {
       letter: "C",
       title: "Corporate",
-      description: "Large-scale events that bring industries together, featuring cutting-edge technology and seamless coordination.",
+      description:
+        "Large-scale events that bring industries together, featuring cutting-edge technology and seamless coordination.",
       icon: <FaChartLine className="text-xl sm:text-2xl" />,
-      features: ["Industry Summits", "Trade Shows", "Global Conferences"]
+      features: ["Industry Summits", "Trade Shows", "Global Conferences"],
     },
     {
       letter: "E",
       title: "Events",
-      description: "Transform ordinary occasions into extraordinary experiences with our creative and meticulous planning.",
+      description:
+        "Transform ordinary occasions into extraordinary experiences with our creative and meticulous planning.",
       icon: <FaMagic className="text-xl sm:text-2xl" />,
-      features: ["Product Launches", "Galas", "Corporate Celebrations"]
-    }
+      features: ["Product Launches", "Galas", "Corporate Celebrations"],
+    },
   ];
 
   return (
-    <section id="why-alchemy" className="py-0 sm:py-5 bg-gradient-to-br from-accent-sand via-accent-sage to-accent-wood relative overflow-hidden dark:bg-slate-800">
-      {/* Mobile-optimized decorative elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-3 sm:opacity-5" />
-      <motion.div 
-        className="absolute -top-1/3 -right-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-primary/5 rounded-full blur-2xl sm:blur-3xl"
-        animate={{ 
+    <section
+      id="why-alchemy"
+      className="
+        py-12 sm:py-20 
+        bg-gradient-to-br from-accent-sand via-accent-sage to-accent-wood 
+        dark:bg-gray-900
+        relative overflow-hidden 
+        transition-colors duration-300
+      "
+    >
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent dark:from-primary/10 dark:opacity-60" />
+
+      {/* Floating glow */}
+      <motion.div
+        className="
+          absolute -top-1/3 -right-1/4 
+          w-48 sm:w-96 h-48 sm:h-96 
+          bg-primary/10 dark:bg-primary/20 
+          rounded-full blur-2xl sm:blur-3xl
+        "
+        animate={{
           scale: [1, 1.1, 1],
-          opacity: [0.2, 0.4, 0.2]
+          opacity: [0.2, 0.5, 0.2],
         }}
         transition={{ duration: 6, repeat: Infinity }}
       />
 
       <div className="container mx-auto px-3 sm:px-4 relative">
-        <motion.div 
-          className="text-center mb-6 sm:mb-12"
+        {/* Section Heading */}
+        <motion.div
+          className="text-center mb-8 sm:mb-16"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-         <span className="text-primary font-semibold text-xs sm:text-base tracking-wider uppercase mb-1 sm:mb-2 block">
-            Brand Values @Alchemy Events
+          <span className="text-primary font-semibold text-xs sm:text-base tracking-wider uppercase mb-2 block">
+            Our Expertise
           </span>
-          <h2 className="section-title text-2xl sm:text-4xl mb-2 sm:mb-4">Why Alchemy for Events?</h2>
-          <h3 className="text-lg sm:text-xl font-semibold text-primary mb-3 sm:mb-4">MICE - Making Interesting Corporate Events</h3>
-          <p className="text-gray-600 font-body max-w-3xl mx-auto text-sm sm:text-base mt-2 px-2 italic font-semibold">
-            Nothing excites us more than blowing life into your events!
-          </p>
-          <p className="text-gray-600 font-body max-w-3xl mx-auto text-sm sm:text-base mt-3 px-2">
-            At Alchemy, we believe that God lies in the details. With the foresight of the entire event in place, we briskly move ahead building the blocks of your event. Experiences designed by Alchemy are the quintessence of professionalism in the events industry.
-          </p>
-          <p className="text-gray-600 font-body max-w-3xl mx-auto text-sm sm:text-base mt-2 px-2">
-            Our focus on quality is sure to delight your tastes, be it a larger than life event or a sleek one dayer. No matter what the scale, there is nothing that excites us more than blowing life into your events!
+
+          <h2
+            className="
+              section-title text-3xl sm:text-5xl mb-3 sm:mb-4 
+              text-gray-900 dark:text-white
+            "
+          >
+            Making Interesting Corporate Events
+          </h2>
+
+          <p
+            className="
+              text-gray-700 dark:text-gray-300 
+              font-body max-w-2xl mx-auto 
+              text-base sm:text-lg mt-4 px-4 font-medium
+            "
+          >
+            We transform ordinary occasions into extraordinary experiences through
+            meticulous planning and creative execution.
           </p>
         </motion.div>
 
-        {/* Mobile-optimized MICE Section */}
+        {/* MICE Grid */}
         <div className="mb-8 sm:mb-12">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -88,33 +118,89 @@ function WhyAlchemy() {
                 transition={{ delay: index * 0.1 }}
                 className="relative group"
               >
-                <div className="card overflow-hidden p-3 sm:p-6 hover:shadow-lg transition-all duration-300">
-                  {/* Mobile-optimized blur effect */}
-                  <div className="absolute -top-3 -left-3 w-12 sm:w-24 h-12 sm:h-24 bg-primary/10 rounded-full blur-lg sm:blur-2xl group-hover:scale-150 transition-transform duration-500" />
-                  
+                <div
+                  className="
+                    card overflow-hidden p-3 sm:p-6 
+                    bg-white dark:bg-gray-800 
+                    border border-gray-200 dark:border-gray-700 
+                    rounded-xl shadow-sm 
+                    hover:shadow-lg 
+                    transition-all duration-300
+                  "
+                >
+                  {/* Glow bubble */}
+                  <div
+                    className="
+                      absolute -top-3 -left-3 
+                      w-12 sm:w-24 h-12 sm:h-24 
+                      bg-primary/10 dark:bg-primary/20 
+                      rounded-full blur-lg sm:blur-2xl 
+                      group-hover:scale-150 
+                      transition-transform duration-500
+                    "
+                  />
+
                   <div className="relative z-10 flex items-start">
-                    {/* Mobile-optimized letter and icon */}
+                    {/* Letter + Icon */}
                     <div className="flex flex-col items-center mr-3 sm:mr-4">
-                      <span className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent font-heading mb-1 sm:mb-2">
+                      <span
+                        className="
+                          text-2xl sm:text-4xl font-bold 
+                          bg-gradient-to-r from-primary to-primary-dark 
+                          bg-clip-text text-transparent font-heading 
+                          mb-1 sm:mb-2
+                        "
+                      >
                         {item.letter}
                       </span>
-                      <div className="h-6 w-6 sm:h-10 sm:w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+
+                      <div
+                        className="
+                          h-6 w-6 sm:h-10 sm:w-10 
+                          rounded-full bg-primary/10 dark:bg-primary/20 
+                          flex items-center justify-center 
+                          text-primary group-hover:scale-110 
+                          transition-transform
+                        "
+                      >
                         {item.icon}
                       </div>
                     </div>
 
-                    {/* Mobile-optimized content */}
+                    {/* Content */}
                     <div className="flex-1">
-                      <h3 className="text-base sm:text-xl font-heading font-semibold mb-1 sm:mb-2 text-gray-800">
+                      <h3
+                        className="
+                          text-base sm:text-xl font-heading font-semibold 
+                          mb-1 sm:mb-2 
+                          text-gray-800 dark:text-white
+                        "
+                      >
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-gray-600 font-body mb-2 sm:mb-3 line-clamp-2">
+
+                      <p
+                        className="
+                          text-xs sm:text-sm 
+                          text-gray-600 dark:text-gray-300 
+                          font-body mb-2 sm:mb-3 
+                          line-clamp-2
+                        "
+                      >
                         {item.description}
                       </p>
-                      <ul className="space-y-0.5 sm:space-y-1">
+
+                      <ul className="space-y-1">
                         {item.features.map((feature, idx) => (
-                          <li key={idx} className="text-2xs sm:text-sm text-gray-500 flex items-center">
-                            <span className="w-1 h-1 bg-primary rounded-full mr-1.5 sm:mr-2"></span>
+                          <li
+                            key={idx}
+                            className="
+                              text-2xs sm:text-sm 
+                              text-gray-500 dark:text-gray-400 
+                              flex items-center
+                            "
+                          >
+                            <span className="w-1 h-1 bg-primary rounded-full mr-2"></span>
                             {feature}
                           </li>
                         ))}
@@ -127,17 +213,23 @@ function WhyAlchemy() {
           </motion.div>
         </div>
 
-        {/* Mobile-optimized CTA */}
+        {/* CTA */}
         <motion.div
           className="text-center px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-base">
+          <p
+            className="
+              text-gray-600 dark:text-gray-400 
+              mb-3 sm:mb-4 text-xs sm:text-base
+            "
+          >
             Ready to create an unforgettable event?
           </p>
-          <Link 
+
+          <Link
             to="contact-us"
             smooth={true}
             offset={-100}
@@ -153,4 +245,3 @@ function WhyAlchemy() {
 }
 
 export default WhyAlchemy;
-

@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { motion } from 'framer-motion';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import slide1 from '../assets/images/slide1.jpg';
 import slide2 from '../assets/images/slide2.jpg';
 import slide3 from '../assets/images/slide3.jpg';
@@ -40,74 +41,79 @@ function ImageCarousel() {
         primary: "Start Planning",
         secondary: "View Gallery"
       }
-    },
-    // ... other items
+    }
   ];
 
   return (
-    <div className="carousel-container sticky w-auto h-auto sm:h-[90vh] sm:w-[100vw]  rounded-lg overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 z-[1]" />
-      
+    <div className="carousel-container w-full h-[40vh] sm:h-[85vh] md:h-[90vh] rounded-lg overflow-hidden relative">
+      {/* Dark overlay only on desktop */}
+      <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/40 z-[1]" />
+
       <Carousel
         showThumbs={false}
         showStatus={false}
         infiniteLoop
         autoPlay
         interval={5000}
-        transitionTime={500}
-        swipeable={true}
-        emulateTouch={true}
+        transitionTime={600}
+        swipeable
+        emulateTouch
         className="h-full w-full"
       >
-        {carouselItems.map((item, index) => (
-          <div key={index} className="relative h-full">
-            <div 
-              className="absolute inset-0 bg-cover bg-center rounded-lg bg-no-repeat"
-              style={{ 
-                backgroundImage: `url(${item.image})`,
-                height: '100%',
-                width: '100%',
-                filter: 'brightness(0.85)'
-              }}
-            />
+        {carouselItems.map((item) => (
+          <div key={item.id} className="relative h-full w-full">
             
-            {/* Content overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-10">
+            {/* The image */}
+            <img 
+              src={item.image} 
+              alt={item.title} 
+              className="object-cover w-full h-[40vh] sm:h-[85vh] md:h-[90vh]" 
+            />
+
+            {/* Content overlay ONLY on desktop/tablet */}
+            <div className="hidden sm:flex absolute inset-0 flex-col items-center justify-center px-4 z-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-center max-w-4xl mx-auto backdrop-blur-[2px] bg-black/20 p-4 sm:p-6 md:p-8 rounded-xl"
+                className="
+                  text-center max-w-4xl mx-auto
+                  backdrop-blur-[2px] bg-black/20 
+                  p-6 md:p-8 rounded-xl
+                "
               >
                 <motion.h2 
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-2 sm:mb-4 font-heading"
+                  className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   {item.title}
                 </motion.h2>
+
                 <motion.p
-                  className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-2 sm:mb-4 font-body"
+                  className="text-lg md:text-xl lg:text-2xl text-white/90 mb-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   {item.subtitle}
                 </motion.p>
+
                 <motion.p
-                  className="text-sm sm:text-base md:text-lg text-white/80 mb-4 sm:mb-6 md:mb-8 font-serif hidden sm:block"
+                  className="text-base md:text-lg text-white/80 mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
                   {item.description}
                 </motion.p>
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="space-x-2 sm:space-x-4"
+                  className="space-x-4"
                 >
                   <button className="btn btn-primary">
                     {item.cta.primary}
@@ -125,4 +131,4 @@ function ImageCarousel() {
   );
 }
 
-export default ImageCarousel; 
+export default ImageCarousel;

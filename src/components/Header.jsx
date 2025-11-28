@@ -135,7 +135,7 @@ function Header() {
                 `nav__link hover:text-primary transition-colors font-serif ${isActive ? 'active route-active' : ''}`
               }
             >
-              Wedding
+              Weddings
             </NavLink>
             <NavLink 
               to="/blog"
@@ -145,32 +145,45 @@ function Header() {
             >
               Blog
             </NavLink>
+            
+            {/* Theme Toggle Button - Desktop */}
+            <button
+              onClick={toggleTheme}
+              className="hidden md:flex w-10 h-10 rounded-full 
+                bg-white/10 dark:bg-gray-700/50 backdrop-blur-md items-center justify-center 
+                text-primary dark:text-yellow-400 hover:bg-primary hover:text-white 
+                dark:hover:bg-yellow-400 dark:hover:text-gray-900 transition-all duration-300 
+                shadow-md hover:shadow-lg hover:shadow-primary/20 dark:shadow-primary/10
+                border border-white/20 dark:border-gray-600
+                transform hover:scale-110 active:scale-95 ml-4"
+              aria-label="Toggle theme"
+            >
+              <motion.div
+                initial={{ rotate: 0 }}
+                animate={{ rotate: isDark ? 180 : 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-full h-full flex items-center justify-center"
+              >
+                {isDark ? (
+                  <FaSun className="text-lg" />
+                ) : (
+                  <FaMoon className="text-lg" />
+                )}
+              </motion.div>
+            </button>
           </div>
           
-          {/* Hamburger Menu Button for Mobile */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden fixed top-4 right-20 z-[60] w-12 h-12 rounded-full 
-              bg-white/10 backdrop-blur-md flex items-center justify-center 
-              text-primary dark:text-dark-text hover:bg-primary hover:text-white 
-              dark:hover:bg-primary transition-all duration-500 
-              shadow-lg hover:shadow-primary/20 dark:shadow-primary/10
-              border border-white/20 dark:border-white/10
-              transform hover:scale-110 active:scale-95"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
-          </button>
-
-          {/* Theme Toggle Button */}
-          <button
+          {/* Mobile Buttons - Theme Toggle & Hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Theme Toggle Button - Mobile */}
+            <button
               onClick={toggleTheme}
-              className="fixed top-4 right-4 z-[60] w-12 h-12 rounded-full 
-                bg-white/10 backdrop-blur-md flex items-center justify-center 
-                text-primary dark:text-dark-text hover:bg-primary hover:text-white 
-                dark:hover:bg-primary transition-all duration-500 
-                shadow-lg hover:shadow-primary/20 dark:shadow-primary/10
-                border border-white/20 dark:border-white/10
+              className="w-10 h-10 rounded-full 
+                bg-white/10 dark:bg-gray-700/50 backdrop-blur-md flex items-center justify-center 
+                text-primary dark:text-yellow-400 hover:bg-primary hover:text-white 
+                dark:hover:bg-yellow-400 dark:hover:text-gray-900 transition-all duration-300 
+                shadow-md hover:shadow-lg
+                border border-white/20 dark:border-gray-600
                 transform hover:scale-110 active:scale-95"
               aria-label="Toggle theme"
             >
@@ -181,12 +194,28 @@ function Header() {
                 className="w-full h-full flex items-center justify-center"
               >
                 {isDark ? (
-                  <FaSun className="text-xl text-yellow-400" />
+                  <FaSun className="text-lg" />
                 ) : (
-                  <FaMoon className="text-xl text-primary" />
+                  <FaMoon className="text-lg" />
                 )}
               </motion.div>
             </button>
+
+            {/* Hamburger Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-10 h-10 rounded-full 
+                bg-white/10 dark:bg-gray-700/50 backdrop-blur-md flex items-center justify-center 
+                text-primary dark:text-yellow-400 hover:bg-primary hover:text-white 
+                dark:hover:bg-yellow-400 dark:hover:text-gray-900 transition-all duration-300 
+                shadow-md hover:shadow-lg
+                border border-white/20 dark:border-gray-600
+                transform hover:scale-110 active:scale-95"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <FaTimes className="text-lg" /> : <FaBars className="text-lg" />}
+            </button>
+          </div>
 
          
         </div>

@@ -12,14 +12,20 @@ function Home() {
     <main className="container min-h-screen overflow-x-hidden bg-white p-0 m-0 dark:bg-black">
       {/* Hero Carousel Section */}
       <section className="rounded-t-3xl sticky overflow-hidden p-0 m-0 w-100%">
-      <ImageCarousel />
+        <ImageCarousel />
       </section>
-        <WhyAlchemy />
-        <BrandStory />
-        <Clients />
-        <Testimonials />
-        <Vision />
-        <ContactUs />
+      
+      
+      <WhyAlchemy />
+      <BrandStory />
+      <Vision />
+      
+     
+      <Clients />
+      <Testimonials />
+      
+      
+      <ContactUs />
     </main>
   );
 }

@@ -50,7 +50,7 @@ function BrandStory() {
   };
 
   return (
-    <section id="brand-story" className="py-6 sm:py-24 bg-white relative overflow-hidden">
+    <section id="brand-story" className="py-12 sm:py-24 bg-white relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
       <motion.div 
@@ -67,26 +67,20 @@ function BrandStory() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-6 sm:mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="section-title">Brand Story</h2>
-          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base mb-4">
-          May of 2010, armed with a graduation from Bhartiya Vidyapeeth, Rahul Sharma founded Alchemy events while still studying in the city of Pune. Today, the company has grown by leaps and bounds to carve out a unique space for itself in the events industry.
-          </p>
-          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base mb-6">
-          Clarity of thought has been key to this growth story as the founder has, for as long as he can remember, been driven to organize events. As a student, as a professional and even as a family man, it is his zest for creating a beautiful and memorable experience that has studded Alchemy today among the big names in the events industry!
-          </p>
-          
-          <h3 className="text-xl font-semibold text-primary mt-6 mb-4">An Eventful Bunch</h3>
-          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base mb-4">
-          The team at Alchemy Events is sure to take you by surprise because of the level of involvement and quick responses in execution. Yeah, we take pride in our turn-around-time.
-          </p>
-          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base mb-4">
-          Be it any modifications, change in plan or improvisation, we stand by you shoulder-to-shoulder while creating a rich brand experience for your associates, partners or employees.
-          </p>
-          <p className="text-gray-medium font-body max-w-4xl mx-auto text-sm sm:text-base">
-          A firm believer in leading from the front, Rahul has built a strong team, nurtured a talent pool of enthusiastic professionals over the years and executed brand experiences for clients across industries of automobile, energy, real estate, technology, business service providers and more!
-          </p>
+          <span className="text-primary font-semibold text-xs sm:text-base tracking-wider uppercase mb-2 block">
+            Our Journey
+          </span>
+          <h2 className="section-title text-3xl sm:text-5xl mb-4 sm:mb-6">Built on Passion & Excellence</h2>
+          <div className="max-w-3xl mx-auto space-y-4">
+            <p className="text-gray-700 font-body text-base sm:text-lg leading-relaxed">
+              Founded in 2010 in Pune, Alchemy Events has grown from a passionate startup to a trusted name in the events industry. Our journey is driven by one simple belief: <span className="text-primary font-semibold">God lies in the details</span>.
+            </p>
+            <p className="text-gray-600 font-body text-sm sm:text-base leading-relaxed">
+              With a dedicated team and quick turnaround times, we've executed brand experiences across automobile, energy, real estate, technology, and business service industries.
+            </p>
+          </div>
         </motion.div>
 
         <motion.div 

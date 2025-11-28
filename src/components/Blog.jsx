@@ -121,29 +121,7 @@ function Blog() {
           ))}
         </div>
 
-        {/* Newsletter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-primary/5 rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto"
-        >
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4">
-            Stay Updated
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Subscribe to our newsletter for the latest event updates and exclusive offers.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
-            />
-            <button className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors duration-300">
-              Subscribe
-            </button>
-          </div>
-        </motion.div>
+        
       </div>
     </div>
   );
