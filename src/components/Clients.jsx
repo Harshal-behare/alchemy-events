@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import audiLogo from "../assets/logos/audi-logo.png";
 import mercedesLogo from "../assets/logos/mercedes-logo.webp";
 import godrejLogo from "../assets/logos/godrej-logo.webp";
+import aegisLogo from "../assets/logos/aegis-logistics-limited-logo.jpg";
+
 
 function Clients() {
   const clientsWithLogos = useMemo(
@@ -11,10 +13,9 @@ function Clients() {
       { name: "Mercedes", logo: mercedesLogo },
       { name: "Audi", logo: audiLogo },
       { name: "Godrej", logo: godrejLogo },
-      { name: "DFPCL", logo: null },
+      { name: "Aegis", logo: aegisLogo },
       { name: "Indofil", logo: null },
       { name: "ACI Worldwide", logo: null },
-      { name: "Aegis", logo: null },
       { name: "AurionPro", logo: null },
       { name: "Diebold", logo: null },
     ],
