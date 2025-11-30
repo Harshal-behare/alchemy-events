@@ -108,7 +108,7 @@
   }
 
   .carousel .slide img {
-    @apply w-full h-full object-cover;
+    @apply w-full h-full object-cover object-center;
   }
   
   .carousel .control-dots {
@@ -208,6 +208,7 @@
 .carousel .slide img {
   opacity: 1 !important;
   transition: opacity 0.5s ease-in-out;
+  object-position: center !important;
 }
 
 /* Prevent FOUC (Flash of Unstyled Content) */
@@ -228,8 +229,10 @@
 /* Mobile-specific content adjustments */
 @media (max-width: 640px) {
   .carousel .slide img {
-    height: 20% !important;
+    height: 40vh !important;
+    width: 100% !important;
     object-fit: cover;
+    object-position: center;
   }
 
   .carousel-content {

@@ -67,7 +67,7 @@ function ImageCarousel() {
             <img 
               src={item.image} 
               alt={item.title} 
-              className="object-cover w-full h-[40vh] sm:h-[85vh] md:h-[90vh]" 
+              className="object-cover object-center w-full h-[40vh] sm:h-[85vh] md:h-[90vh]" 
             />
 
             {/* Content overlay ONLY on desktop/tablet */}
