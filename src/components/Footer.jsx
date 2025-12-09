@@ -132,6 +132,10 @@ function Footer() {
                 <FaPhone className="text-primary" />
                 +91 8446669100
               </a>
+              <a href="tel:95031 70005" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
+                <FaPhone className="text-primary" />
+                 +91 95031 70005
+              </a>
               <a href="mailto:info@alchemyevents.in" className="flex items-center gap-2 text-sm sm:text-base text-gray-medium hover:text-primary transition-colors">
                 <FaEnvelope className="text-primary" />
                 info@alchemyevents.in

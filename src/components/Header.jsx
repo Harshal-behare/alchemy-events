@@ -32,6 +32,20 @@ function Header() {
     setIsDark(savedTheme === 'dark');
     document.documentElement.classList.toggle('dark', savedTheme === 'dark');
   }, []);
+// 🔥 Watch for theme changes globally (just like Footer)
+React.useEffect(() => {
+  const observer = new MutationObserver(() => {
+    const current = document.documentElement.classList.contains("dark");
+    setIsDark(current);
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
+  return () => observer.disconnect();
+}, []);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -129,6 +143,20 @@ function Header() {
             >
               Contact Us
             </ScrollLink>
+            <ScrollLink
+  to="testimonials"
+  smooth={true}
+  offset={-100}
+  duration={500}
+  spy={isHomePage}
+  className={`nav__link hover:text-primary transition-colors cursor-pointer ${
+    isHomePage ? 'can-active no-glow' : ''
+  }`}
+  onClick={() => scrollToSection('testimonials')}
+>
+  Testimonials
+</ScrollLink>
+
             <NavLink 
               to="/wedding"
               className={({ isActive }) => 
@@ -267,7 +295,31 @@ function Header() {
             >
               Vision
             </ScrollLink>
-            <RouterLink to="/blog" onClick={() => setIsOpen(false)} className="mobile-menu__link">Blog</RouterLink>
+            {isHomePage ? (
+  <ScrollLink
+    to="testimonials"
+    smooth={true}
+    offset={-100}
+    duration={500}
+    spy={true}
+    activeClass="active"
+    className="mobile-menu__link"
+    onClick={() => scrollToSection('testimonials')}
+  >
+    Testimonials
+  </ScrollLink>
+) : (
+  <NavLink
+    to="/#testimonials"
+    onClick={() => setIsOpen(false)}
+    className={({ isActive }) =>
+      `mobile-menu__link ${isActive ? 'active route-active' : ''}`
+    }
+  >
+    Testimonials
+  </NavLink>
+)}
+
             <ScrollLink
               to="contact-us"
               smooth={true}
