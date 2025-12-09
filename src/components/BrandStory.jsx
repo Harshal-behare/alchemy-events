@@ -27,8 +27,8 @@ function BrandStory() {
     },
     { 
       title: 'Scale', 
-      value: '1000+', 
-      description: 'Events in 9 years',
+      value: '2000+', 
+      description: 'Events in 15 years',
       icon: <FaChartLine className="text-primary text-lg sm:text-xl" />,
       suffix: ''
     },

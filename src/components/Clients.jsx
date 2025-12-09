@@ -1,19 +1,22 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
 
-import audiLogo from "../assets/logos/audi-logo.png";
+import audiLogo from "../assets/logos/audi.jpg";
 import mercedesLogo from "../assets/logos/mercedes-logo.webp";
 import godrejLogo from "../assets/logos/godrej-logo.webp";
 import aegisLogo from "../assets/logos/aegis-logistics-limited-logo.jpg";
-
+import bmwLogo from "../assets/logos/bmw.jpg";
+import rocketSoftwareLogo from "../assets/logos/rocket-software-logo.jpg";
 
 function Clients() {
   const clientsWithLogos = useMemo(
     () => [
       { name: "Mercedes", logo: mercedesLogo },
+      {name:"BMW", logo: bmwLogo},
       { name: "Audi", logo: audiLogo },
       { name: "Godrej", logo: godrejLogo },
       { name: "Aegis", logo: aegisLogo },
+      {name:"Rocket Software", logo: rocketSoftwareLogo},
       { name: "Indofil", logo: null },
       { name: "ACI Worldwide", logo: null },
       { name: "AurionPro", logo: null },
@@ -95,11 +98,11 @@ function Clients() {
           >
             <p className="text-gray-700 dark:text-gray-300 font-body text-base sm:text-lg mb-2">
               <span className="font-bold text-primary text-4xl sm:text-5xl block mb-3">
-                1000+
+                2000+
               </span>
               Events Managed Successfully
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">2010 - 2020</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Since 2009</p>
           </div>
         </motion.div>
       </div>
