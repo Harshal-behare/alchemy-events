@@ -89,7 +89,7 @@ React.useEffect(() => {
             <img 
               src={isDark ? LogoDark : Logo}
               alt="Alchemy Events" 
-              className="h-11 md:h-13 transition-all duration-300  rounded-t-2xl rounded-b-md" 
+              className="h-11 md:h-13 transition-all duration-300" 
             />
           </RouterLink>
 

@@ -58,8 +58,8 @@ function Footer() {
   ];
 
   const locations = [
-    "Pune Office: A 1503, Ganga Florentina, NIBM Annex, Pune - 411060.",
     "Mumbai Office: 603, Romell Amore, Off Veera Desai Road, Andheri West, Mumbai - 400058.",
+     "Pune Office: A 1503, Ganga Florentina, NIBM Annex, Pune - 411060.",
   ];
 
   return (
